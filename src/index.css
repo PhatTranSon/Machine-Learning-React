@@ -1,13 +1,49 @@
+/*Import custom fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+html,
 body {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Raleway', sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*Custom styling for navbar*/
+.navbar-underlined {
+  border-bottom: 1px solid black;
+  font-size: 1.2em;
+  margin: 10px;
+}
+
+.navbar .navbar-brand {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.navbar .navbar-brand > .navbar-item,
+.navbar .navbar-brand .navbar-link {
+  display: inline-block !important;
+}
+
+/*Custom styling for navbar*/
+
+.home-title {
+  color: white;
+  font-size: 6em;
+}
+
+.home-subtitle {
+  color: white;
+  font-size: 1.5em;
+}
+
+.home-button {
+  font-size: 1.2em !important;
+  border-radius: 30px !important;
 }
