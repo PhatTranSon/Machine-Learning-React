@@ -1,6 +1,11 @@
 /*Import custom fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 html,
 body {
   padding: 0;
@@ -32,7 +37,6 @@ code {
 }
 
 /*Custom styling for navbar*/
-
 .home-title {
   color: white;
   font-size: 6em;
@@ -46,4 +50,28 @@ code {
 .home-button {
   font-size: 1.2em !important;
   border-radius: 30px !important;
+}
+
+/*Custom style for carou*/
+.slick-prev {
+  font-size: 2em !important;
+  left: 3% !important;
+  z-index: 1;
+}
+
+.slick-next {
+  font-size: 2em !important;
+  right: 3% !important;
+  z-index: 1;
+}
+
+.slick-prev:before {
+  color: #aaaaaa !important;
+}
+.slick-next:before {
+  color: #aaaaaa !important;
+}
+
+.carousel-title {
+  font-size: 2.5rem;
 }
