@@ -31,7 +31,7 @@ class Star {
         let previousRelativeY = this.p5.map(this.y / this.previous_z, 0, 1, 0, this.p5.height);
         
         //Draw the star
-        let radius = this.p5.map(this.z, 0, this.p5.width, 10, 0);
+        let radius = this.p5.map(this.z, 0, this.p5.width, 20, 0);
         this.p5.circle(relativeX, relativeY, radius);
         
         //Update the position in the z axis so that
@@ -75,7 +75,7 @@ const BackgroundSketch = (props) => {
         //Initialize stars
         //Append star
         for (let i = 0; i !== 300; ++i) {
-            stars.push(new Star(p5, 20));
+            stars.push(new Star(p5, 30));
         }
     }
 

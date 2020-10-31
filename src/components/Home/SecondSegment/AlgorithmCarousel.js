@@ -1,28 +1,34 @@
 import Slider from 'react-slick';
+import LinearRegressionCard from './LinearRegressionCard';
+import LogisticRegressionCard from './LogisticRegressionCard';
+import NeuralNetworkCard from './NeuralNetworkCard';
+import KNearestNeighborsCard from './KNearestNeighborsCard';
 
 const AlgorithmCarousel = (props) => {
     const settings = {
         arrows: true,
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 2000,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000
     }
 
     return (
         <Slider {...settings}>
             <div>
-                <h3>1<br/><br/></h3>
+                <LinearRegressionCard/>
             </div>
             <div>
-                <h3>2</h3>
+                <LogisticRegressionCard/>
             </div>
             <div>
-                <h3>3</h3>
+                <NeuralNetworkCard/>
             </div>
             <div>
-                <h3>4</h3>
+                <KNearestNeighborsCard/>
             </div>
             <div>
                 <h3>5</h3>

@@ -38,12 +38,12 @@ code {
 
 /*Custom styling for navbar*/
 .home-title {
-  color: white;
+  color: #F4A261;
   font-size: 6em;
 }
 
 .home-subtitle {
-  color: white;
+  color: #a8dadc;
   font-size: 1.5em;
 }
 
@@ -66,12 +66,55 @@ code {
 }
 
 .slick-prev:before {
+  font-size: 2em !important;
   color: #aaaaaa !important;
 }
 .slick-next:before {
+  font-size: 2em !important;
   color: #aaaaaa !important;
 }
 
 .carousel-title {
-  font-size: 2.5rem;
+  font-size: 2.5em;
+}
+
+/*Styling for card*/
+.panel {
+  width: 80%;
+  margin-top: 30px !important;
+}
+
+.panel-left {
+  padding: 40px !important;
+  background: #ECECEC;
+  text-align: left;
+}
+
+.panel-right {
+  padding: 0px !important;
+}
+
+.card-chapter {
+  color: #457b9d;
+  font-size: 1.5em;
+}
+
+.card-name {
+  color: #F4A261;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.card-description {
+  font-size: 1.5em;
+}
+
+.card-button {
+  font-size: 1.2em !important;
+  border-radius: 30px !important;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%px;
 }
