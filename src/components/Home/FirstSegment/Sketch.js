@@ -19,7 +19,7 @@ class Star {
     
     //Method to display star
     display() {
-        this.p5.fill(255);
+        this.p5.fill(0);
         this.p5.noStroke();
         
         //Get relative position with the z axis
@@ -39,7 +39,7 @@ class Star {
         this.previous_z = this.z;
         
         //Draw the stroke
-        this.p5.stroke(255);
+        this.p5.stroke(0);
         this.p5.strokeWeight(1);
         this.p5.line(previousRelativeX, previousRelativeY, relativeX, relativeY);
     }
@@ -80,7 +80,7 @@ const BackgroundSketch = (props) => {
     }
 
     const draw = (p5) => {
-        p5.background(0);
+        p5.background(255);
         //Translate according to mouse position
         p5.translate(p5.mouseX, p5.mouseY);
         //Draw star

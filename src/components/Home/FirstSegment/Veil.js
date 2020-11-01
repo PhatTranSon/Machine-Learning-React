@@ -3,11 +3,6 @@ const Veil = (props) => {
         <div 
             style={
                 {
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    zIndex: 1,
                     height: "90%",
                     width: "100%",
                     display: "flex",
