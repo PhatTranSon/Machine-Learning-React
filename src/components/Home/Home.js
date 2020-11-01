@@ -3,6 +3,7 @@ import Sketch from './FirstSegment/Sketch';
 import Veil from './FirstSegment/Veil';
 import Algorithms from './SecondSegment/Algorithms';
 import PoweredBy from './ThirdSegment/PoweredBy';
+import AboutUs from './FourthSegment/AboutUs';
 
 const Home = (props) => {
     return <div className="snap-container">
@@ -24,6 +25,10 @@ const Home = (props) => {
 
         <section className="snap-child" id="powered-by-section">
             <PoweredBy/>
+        </section>
+
+        <section className="snap-child" id="about-us-section">
+            <AboutUs/>
         </section>
     </div>
 }

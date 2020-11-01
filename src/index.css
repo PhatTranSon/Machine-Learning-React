@@ -1,5 +1,5 @@
 /*Google fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;800&display=swap');
 
 * {
   padding: 0;
@@ -60,7 +60,7 @@ code {
 }
 
 .home-subtitle {
-  color: #a8dadc;
+  color: #457b9d;
   font-size: 1.5em;
 }
 
@@ -98,6 +98,7 @@ code {
 
 .carousel-title {
   font-size: 4em;
+  color: #457b9d;
 }
 
 /*Styling for card*/
@@ -179,4 +180,55 @@ code {
   color: white;
   display: inline-block;
   width: 30%;
+}
+
+/*About section*/
+.about {
+  text-align: center;
+}
+
+#about-us-section {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.about-title {
+  font-size: 3em;
+  color: white;
+}
+
+.about-content {
+  font-size: 1.5em;
+  font-weight: 200;
+  width: 50%;
+  display: inline-block;
+  color: white;
+}
+
+.about-name {
+  font-size: 1.5em;
+  font-weight: 200;
+  color: white;
+}
+
+.contact-button {
+  font-weight: 800;
+  font-size: 1.7em;
+  color: rgba(0, 0, 0, 0.5);
+  background: white;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  width: 2.7em;
+  height: 2.7em;
+  transition: all 200ms ease-in;
+}
+
+.contact-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border: 3px solid white;
+  color: white;
+}
+
+.contact-button-text {
+  color: white;
+  font-size: 1.2em;
 }
