@@ -11,11 +11,28 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Raleway', sans-serif;
+  height: 100vh;
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*Snap scrolling*/
+.snap-container {
+  overflow: scroll;
+  height: 100vh;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+}
+
+.snap-child {
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
 }
 
 /*Custom styling for navbar*/
@@ -55,6 +72,9 @@ code {
 }
 
 /*Custom style for carou*/
+.carousel-section {
+  background: rgba(0, 0, 0, 0.2);
+} 
 .slick-prev {
   font-size: 2em !important;
   left: 3% !important;
@@ -84,6 +104,7 @@ code {
 .panel {
   width: 80%;
   margin-top: 30px !important;
+  height: 70vh;
 }
 
 .panel-left {
@@ -118,7 +139,7 @@ code {
 
 .card-image {
   width: 100%;
-  height: 100%px;
+  height: 100%;
 }
 
 /*Powered by section*/

@@ -5,20 +5,27 @@ import Algorithms from './SecondSegment/Algorithms';
 import PoweredBy from './ThirdSegment/PoweredBy';
 
 const Home = (props) => {
-    return <main>
-        <Navbar/>
-
+    return <div className="snap-container">
         <div style={{position: "fixed", zIndex: -999}}>
             <Sketch/>
         </div>
 
-        <div style={{position: "relative", height: "800px"}}>
-            <Veil/>
-        </div>
+        
+        <section className="snap-child">
+            <Navbar/>
+            <div style={{position: "relative", height: "800px"}}>
+                <Veil/>
+            </div>
+        </section>
 
-        <Algorithms/>
-        <PoweredBy/>
-    </main>
+        <section className="snap-child carousel-section">
+            <Algorithms/>
+        </section>
+
+        <section className="snap-child" id="powered-by-section">
+            <PoweredBy/>
+        </section>
+    </div>
 }
 
 export default Home;

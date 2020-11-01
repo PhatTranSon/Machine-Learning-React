@@ -17,11 +17,15 @@ class PoweredBy extends React.Component {
     }
 
     componentDidMount() {
-        document.addEventListener('scroll', this.trackScrolling);
+        document
+            .querySelector(".snap-container")
+            .addEventListener('scroll', this.trackScrolling);
     }
 
     componentWillUnmount() {
-        document.removeEventListener('scroll', this.trackScrolling);
+        document
+            .querySelector(".snap-container")
+            .removeEventListener('scroll', this.trackScrolling);
     }
 
     trackScrolling = () => {
@@ -31,7 +35,9 @@ class PoweredBy extends React.Component {
             this.setState({
                 isVisible: true
             });
-            document.removeEventListener('scroll', this.trackScrolling);
+            document
+                .querySelector(".snap-container")
+                .removeEventListener('scroll', this.trackScrolling);
         }
     };
 
