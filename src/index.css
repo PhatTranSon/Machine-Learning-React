@@ -11,8 +11,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Raleway', sans-serif;
-  height: 100vh;
-  overflow: hidden;
 }
 
 code {
@@ -231,4 +229,19 @@ code {
 .contact-button-text {
   color: white;
   font-size: 1.2em;
+}
+
+.algo-right-panel {
+  position: sticky;
+  height: 100vh;
+  top: 0;
+}
+
+.algo-left-subtitle {
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.algo-left-title {
+  font-size: 3em;
 }
