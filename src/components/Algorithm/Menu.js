@@ -12,7 +12,7 @@ class Menu extends React.Component {
 
     render() {
         return (
-            <div className="dropdown" style={{margin: "60px"}}>
+            <div className="dropdown" style={{margin: "50px"}}>
                 <div className="dropdown-trigger">
                     <button className="button menu-button" aria-haspopup="true" aria-controls="dropdown-menu">
                         <span>Menu</span>
@@ -34,7 +34,7 @@ class Menu extends React.Component {
                             Chapter 4: K Nearest Neighbors
                         </a>
                         <a href="#" className="dropdown-item">
-                            Chapter 3: K Mean clustering
+                            Chapter 5: K Mean clustering
                         </a>
                     </div>
                 </div>

@@ -1,10 +1,10 @@
-import LeftPanel from './Panel/LeftPanel';
-import Panel from './Panel/PanelSection';
-import RightPanel from './Panel/RightPanel';
-import PanelChild from './Panel/PanelChild';
+import LeftPanel from '../Panel/LeftPanel';
+import Panel from '../Panel/PanelSection';
+import RightPanel from '../Panel/RightPanel';
+import PanelChild from '../Panel/PanelChild';
 
 import { useState } from 'react';
-import Menu from './Menu';
+import Menu from '../Menu';
 
 const Algorithm = (props) => {
     //Current right panel index
@@ -17,12 +17,12 @@ const Algorithm = (props) => {
 
     return <div>
         <Panel onScrollTo={onScrollTo}>
-            <LeftPanel style={{background: "#F1FAEE", textAlign: "left"}}>
+            <LeftPanel style={{background: "#90e0ef", textAlign: "left"}}>
                 <Menu/>
-                <h1 className="algo-left-subtitle">Chapter 1</h1>
-                <h1 className="algo-left-title">Linear regresion</h1>
+                <h1 className="algo-left-subtitle">Chapter 2</h1>
+                <h1 className="algo-left-title">Logistic Regression</h1>
                 <PanelChild index={0}>
-                    <h1 className="algo-left-header">Linear Equation</h1>
+                    <h1 className="algo-left-header">Linear discriminant</h1>
                     <p className="algo-left-text">
                         Cloud IoT Core is a fully managed service that allows you to easily and securely connect, manage, and ingest data from millions of globally dispersed devices. Cloud IoT Core, in combination with other services on Google Cloud platform, provides a complete solution for collecting, processing, analyzing, and visualizing IoT data in real time to support improved operational efficiency.
                     </p>
@@ -41,7 +41,7 @@ const Algorithm = (props) => {
                 </PanelChild>
                 <a className="algo-footer">
                     <p>Next</p>
-                    Chapter 2
+                    Chapter 4
                 </a>
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>
