@@ -1,3 +1,5 @@
+import React from 'react';
+
 const RightPanel = (props) => {
     //Get the current child index
     const currentIndex = props.currentIndex;
@@ -6,7 +8,23 @@ const RightPanel = (props) => {
         <div className="column is-three-fifths">
             <div className="algo-right-panel">
                 {
-                    props.children[currentIndex] || null
+                    React.Children.map(props.children, (child, index) => {
+                        if (index === currentIndex) {
+                            return React.cloneElement(child, {
+                                style: {
+                                    ...child.props.style,
+                                    display: "block"
+                                }
+                            });
+                        } else {
+                            return React.cloneElement(child, {
+                                style: {
+                                    ...child.props.style,
+                                    display: "none"
+                                }
+                            });
+                        }
+                    })
                 }
             </div>
         </div>

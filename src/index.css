@@ -239,6 +239,9 @@ code {
   position: sticky;
   height: 100vh;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .algo-left-panel {
@@ -292,3 +295,7 @@ code {
   color: white;
 }
 
+/* Sketch */
+.sketch-button {
+  
+}
