@@ -3,6 +3,8 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
+import { Link } from 'react-router-dom';
+
 class Menu extends React.Component {
     componentDidMount() {
         const dropdown = document.querySelector('.dropdown');
@@ -24,21 +26,21 @@ class Menu extends React.Component {
     
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                     <div className="dropdown-content">
-                        <a href="#" className="dropdown-item">
+                        <Link to="/chapter1" className="dropdown-item">
                             Chapter 1: Linear regression
-                        </a>
-                        <a className="dropdown-item">
+                        </Link>
+                        <Link to="/chapter2" className="dropdown-item">
                             Chapter 2: Logistic regression
-                        </a>
-                        <a href="#" className="dropdown-item">
+                        </Link>
+                        <Link to="/chapter3" className="dropdown-item">
                             Chapter 3: Neural Network
-                        </a>
-                        <a href="#" className="dropdown-item">
+                        </Link>
+                        <Link to="/chapter4" className="dropdown-item">
                             Chapter 4: K Nearest Neighbors
-                        </a>
-                        <a href="#" className="dropdown-item">
+                        </Link>
+                        <Link to="/chapter5" className="dropdown-item">
                             Chapter 5: K Mean clustering
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

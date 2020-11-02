@@ -9,6 +9,8 @@ import Menu from '../Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
+import { Link } from 'react-router-dom'; 
+
 const Algorithm = (props) => {
     //Current right panel index
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,10 +44,10 @@ const Algorithm = (props) => {
                         Cloud IoT Core is a fully managed service that allows you to easily and securely connect, manage, and ingest data from millions of globally dispersed devices. Cloud IoT Core, in combination with other services on Google Cloud platform, provides a complete solution for collecting, processing, analyzing, and visualizing IoT data in real time to support improved operational efficiency.
                     </p>
                 </PanelChild>
-                <a className="algo-footer">
-                    <p>Next</p>
+                <Link to="/" className="algo-footer">
+                    <p>Back</p>
                     <p>Home <FontAwesomeIcon icon={faArrowRight}/></p>
-                </a>
+                </Link>
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>
                 <div>

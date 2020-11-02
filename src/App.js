@@ -7,6 +7,8 @@ import NeuralNetworkAlgorithm from './components/Algorithm/Types/NeuralNetworkAl
 import KNearestNeighborAlgorithm from './components/Algorithm/Types/KNearestNeighborAlgorithm';
 import KMeanClusteringAlgorithm from './components/Algorithm/Types/KMeanAlgorithm';
 
+import ScrollToTop from './components/Common/ScrollToTop';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +19,7 @@ import {
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <div className="App">
         <Switch>
           <Route exact path="/">
