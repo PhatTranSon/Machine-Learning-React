@@ -1,5 +1,9 @@
 import kmean from '../../../images/kmean.png';
 
+import {
+    Link
+} from "react-router-dom";
+
 const KMeanCard = (props) => {
     return (
         <div className="columns panel" style={{margin: "auto"}}>
@@ -7,11 +11,11 @@ const KMeanCard = (props) => {
                 <h1 className="card-chapter">Chapter 5</h1>
                 <h1 className="card-name">K Mean Clustering</h1>
                 <h1 className="card-description">A traditional unsupervised learning method to cluster similar datapoints.</h1>
-                <a 
+                <Link to="/chapter5"
                     className="button is-white card-button"
                     style={{marginTop: "1.5em", paddingLeft: "2em", paddingRight: "2em"}}>
                     Go to Chapter 5
-                </a>
+                </Link>
             </div>
 
             <div className="column panel-right">
