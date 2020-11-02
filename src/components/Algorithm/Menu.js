@@ -12,9 +12,9 @@ class Menu extends React.Component {
 
     render() {
         return (
-            <div className="dropdown" style={{marginBottom: "30px"}}>
+            <div className="dropdown" style={{margin: "60px"}}>
                 <div className="dropdown-trigger">
-                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <button className="button menu-button" aria-haspopup="true" aria-controls="dropdown-menu">
                         <span>Menu</span>
                     </button>
                 </div>
@@ -22,13 +22,19 @@ class Menu extends React.Component {
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                     <div className="dropdown-content">
                         <a href="#" className="dropdown-item">
-                            Chapter 1
+                            Chapter 1: Linear regression
                         </a>
                         <a className="dropdown-item">
-                            Chapter 2
+                            Chapter 2: Logistic regression
                         </a>
                         <a href="#" className="dropdown-item">
-                            Chapter 3
+                            Chapter 3: Neural Network
+                        </a>
+                        <a href="#" className="dropdown-item">
+                            Chapter 4: K Nearest Neighbors
+                        </a>
+                        <a href="#" className="dropdown-item">
+                            Chapter 3: K Mean clustering
                         </a>
                     </div>
                 </div>

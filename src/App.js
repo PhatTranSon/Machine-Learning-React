@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './components/Home/Home';
-import Algorithm from './components/Algorithm/Algorithm';
+import Algorithm from './components/Algorithm/LinearRegressionAlgorithm';
 
 function App() {
   return (
