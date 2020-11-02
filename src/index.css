@@ -270,6 +270,8 @@ code {
 /*Menu button inside algo panel*/
 .menu-button {
   border: none !important;
+  background: none !important;
+  padding: 0px !important;
 }
 
 /*Footer for left algo panel*/

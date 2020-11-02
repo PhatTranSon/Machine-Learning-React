@@ -6,6 +6,9 @@ import PanelChild from '../Panel/PanelChild';
 import { useState } from 'react';
 import Menu from '../Menu';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 const Algorithm = (props) => {
     //Current right panel index
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,7 +44,7 @@ const Algorithm = (props) => {
                 </PanelChild>
                 <a className="algo-footer">
                     <p>Next</p>
-                    Home
+                    <p>Home <FontAwesomeIcon icon={faArrowRight}/></p>
                 </a>
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>

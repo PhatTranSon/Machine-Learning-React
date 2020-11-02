@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 class Menu extends React.Component {
     componentDidMount() {
         const dropdown = document.querySelector('.dropdown');
@@ -15,7 +18,7 @@ class Menu extends React.Component {
             <div className="dropdown" style={{margin: "50px"}}>
                 <div className="dropdown-trigger">
                     <button className="button menu-button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>Menu</span>
+                        <span><FontAwesomeIcon icon={faBars} size="2x"/></span>
                     </button>
                 </div>
     
