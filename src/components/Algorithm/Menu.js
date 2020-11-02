@@ -26,6 +26,9 @@ class Menu extends React.Component {
     
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                     <div className="dropdown-content">
+                        <Link to="/" className="dropdown-item">
+                            Home
+                        </Link>
                         <Link to="/chapter1" className="dropdown-item">
                             Chapter 1: Linear regression
                         </Link>

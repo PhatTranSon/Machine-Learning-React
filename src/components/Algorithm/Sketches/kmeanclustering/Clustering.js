@@ -6,9 +6,9 @@ import ControlPanel from './ControlPanel';
 //Save state outside components -> Need rethink
 //Create cores
 const ORIGINS = [
-    [100, 75],
-    [300, 75],
-    [200, 300]
+    [100, 150],
+    [500, 150],
+    [300, 500]
 ];
 let points;
 let cores;
@@ -18,10 +18,10 @@ let p5Ref;
 
 export default (props) => {
     //Hold points and cores
-    const POINT_RADIUS = 10;
+    const POINT_RADIUS = 15;
 
     //Set dimension of canvas
-    const width = 400, height = 400, display = 240;
+    const width = 600, height = 600, display = 240;
 
     //Function to create cores and cluster
     const generateCluster = () => {
@@ -35,9 +35,9 @@ export default (props) => {
                 let x = -1;
                 let y = -1;
 
-                while(!(x >= 0 && x <= width && y >= 0 && y <= height)) {
-                    x = core[0] + p5Ref.randomGaussian(0, 30);
-                    y = core[1] + p5Ref.randomGaussian(0, 30);
+                while(!(x >= POINT_RADIUS && x <= width - POINT_RADIUS && y >= POINT_RADIUS && y <= height - POINT_RADIUS)) {
+                    x = core[0] + p5Ref.randomGaussian(0, 50);
+                    y = core[1] + p5Ref.randomGaussian(0, 50);
                 }
 
                 points.push(new Point(x, y, null));
@@ -127,6 +127,7 @@ export default (props) => {
     const setup = (p5, canvasParentRef) => {
         p5.createCanvas(width + display, height).parent(canvasParentRef);
         p5Ref = p5; //Save reference to use math functionality only
+        p5.textFont('Raleway');
         generateCluster();
         generateCores();
     }
@@ -146,13 +147,13 @@ export default (props) => {
         points.forEach(p => {
             p5.strokeWeight(2);
             if (p.type === 0) {
-                p5.fill('red');
+                p5.fill('#e63946');
             } else if (p.type === 1) {
-                p5.fill('blue');
+                p5.fill('#457b9d');
             } else if (p.type === 2) {
-                p5.fill('green');
+                p5.fill('#2a9d8f');
             } else {
-                p5.fill('gray');
+                p5.fill('#8d99ae');
             }
             
             p5.circle(p.x, p.y, POINT_RADIUS);
@@ -166,13 +167,13 @@ export default (props) => {
             p5.circle(core.x, core.y, 20);
             
             if (core.type === 0) {
-                p5.fill('red');
+                p5.fill('#e63946');
             } else if (core.type === 1) {
-                p5.fill('blue');
+                p5.fill('#457b9d');
             } else if (core.type === 2) {
-                p5.fill('green');
+                p5.fill('#2a9d8f');
             } else {
-                p5.fill('gray');
+                p5.fill('#8d99ae');
             }
             
             p5.noStroke();
@@ -200,13 +201,13 @@ export default (props) => {
         p5.textSize(20);
 
         //Display labels
-        p5.fill('red')
+        p5.fill('#e63946')
         p5.text('Red centroid', width + 20, 32);
 
-        p5.fill('blue');
+        p5.fill('#457b9d');
         p5.text('Blue centriod', width + 20, 128);
 
-        p5.fill('green');
+        p5.fill('#2a9d8f');
         p5.text('Green centroid', width + 20, 224);
 
         //Display position

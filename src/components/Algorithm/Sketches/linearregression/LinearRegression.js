@@ -72,7 +72,7 @@ export default (props) => {
     }
 
     const leftMouseClicked = (p5) => {
-        if (p5.mouseX >= 0 && p5.mouseX <= p5.width && p5.mouseY >= 0 && p5.mouseY <= p5.height) {
+        if (p5.mouseX > 0 && p5.mouseX <= p5.width && p5.mouseY > 0 && p5.mouseY <= p5.height) {
             //Reset model
             //model.reset();
             hasConverged = false;
@@ -106,28 +106,28 @@ export default (props) => {
     }
 
     const drawLosses = (p5) => {
-        p5.stroke('black');
-
         //Calculate the current x offset
         let offset = 40;
         let offSetChange = (p5.width - offset * 2) / (losses.length);
 
         //Get the latest loss -> Display
         p5.textSize(20);
-        p5.fill('black');
+        p5.fill('#ddbea9');
         p5.strokeWeight(1);
+        p5.textFont('Raleway');
         p5.text('Loss: ' + losses[losses.length - 1].toFixed(4).toString(), 40, 20);
 
         //Check if converge
         if (hasConverged) {
-            p5.fill('green');
+            p5.fill('#2a9d8f');
             p5.noStroke();
+            p5.textFont('Raleway');
             p5.text('Converged', 40, 40);
         }
 
         //Draw line chart showing plots
         p5.noFill();
-        p5.stroke('black');
+        p5.stroke('#ddbea9');
         p5.strokeWeight(2);
         p5.beginShape();
 
@@ -164,8 +164,8 @@ export default (props) => {
         <div style={{clear: "both"}}></div>
         <button 
             onClick={() => reset()} 
-            className="button is-primary sketch-button" 
-            style={{width: "100%"}}>
+            className="button is-primary" 
+            style={{width: "100%", background: "#F1FAEE", color: "black"}}>
             Reset
         </button>
     </div>

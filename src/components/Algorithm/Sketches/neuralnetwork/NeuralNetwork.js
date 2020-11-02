@@ -87,9 +87,9 @@ export default (props) => {
         
             //Draw 
             if (prob > 0.5) {
-              p5.fill('rgba(0%, 0%, 100%, ' + (prob/2).toString() + ')');
+              p5.fill('rgba(69, 123, 157, ' + (prob/2).toString() + ')');
             } else {
-              p5.fill('rgba(100%, 0%, 0%, ' + ((1-prob)/2).toString() +')');
+              p5.fill('rgba(244, 162, 97, ' + ((1-prob)/2).toString() +')');
             }
 
             p5.rect(segments[i][0], segments[i][1], SEG_SIZE, SEG_SIZE);
@@ -105,15 +105,17 @@ export default (props) => {
     const leftDraw = (p5) => {
         p5.background(204);
 
+        p5.noStroke();
+
         points.forEach(p => {
             //Map canvas coordinates to [0,1]
             let x = p5.map(p.x, 0, 1, 0, p5.width);
             let y = p5.map(p.y, 0, 1, p5.height, 0);
 
             if (p.type == 0) {
-                p5.fill('red');
+                p5.fill('#F4A261');
             } else {
-                p5.fill('blue');
+                p5.fill('#457B9D');
             }
 
             p5.circle(x, y, 10);
@@ -168,28 +170,28 @@ export default (props) => {
     }
 
     const drawLosses = (p5) => {
-        p5.stroke('black');
-
         //Calculate the current x offset
         let offset = 40;
         let offSetChange = (p5.width - offset * 2) / (losses.length);
 
         //Get the latest loss -> Display
         p5.textSize(20);
-        p5.fill('black');
+        p5.fill('#ddbea9');
         p5.strokeWeight(1);
+        p5.textFont('Raleway');
         p5.text('Loss: ' + losses[losses.length - 1].toFixed(4).toString(), 40, 20);
 
         //Check if converge
         if (hasConverged) {
-            p5.fill('green');
+            p5.fill('#2a9d8f');
             p5.noStroke();
+            p5.textFont('Raleway');
             p5.text('Converged', 40, 40);
         }
 
         //Draw line chart showing plots
         p5.noFill();
-        p5.stroke('black');
+        p5.stroke('#f9dcc4');
         p5.strokeWeight(3);
         p5.beginShape();
 

@@ -23,7 +23,7 @@ code {
   overflow: scroll;
   height: 100vh;
   scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-points-y: repeat(30vh);
   scroll-snap-type: y mandatory;
 }
 
@@ -296,6 +296,46 @@ code {
 }
 
 /* Sketch */
-.sketch-button {
-  
+.positive {
+  width: 2em;
+  height: 2em;
+  background: #457B9D;
+  display: inline-block;
+  border-radius: 10px;
 }
+
+.positive-chosen {
+  width: 2em;
+  height: 2em;
+  background: #457B9D;
+  display: inline-block;
+  border-radius: 10px;
+  border: 4px solid #e63946;
+}
+
+.negative {
+  width: 2em;
+  height: 2em;
+  background: #F4A261;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.negative-chosen {
+  width: 2em;
+  height: 2em;
+  background: #F4A261;
+  display: inline-block;
+  border-radius: 10px;
+  border: 4px solid #e63946;
+}
+
+/* Neural network */
+.start-stop-button {
+  padding: 1.5em;
+  border-radius: 50%;
+  display: inline-block;
+  color: white;
+}
+
+

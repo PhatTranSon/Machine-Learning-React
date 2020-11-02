@@ -9,7 +9,7 @@ let neighborCounts;
 
 export default (props) => {
     //Set canvas width and height
-    const width = 400, height = 400, display = 240;
+    const width = 600, height = 600, display = 240;
 
     //Hold ref to p5 for math functionality
     let p5Ref;
@@ -19,25 +19,25 @@ export default (props) => {
 
     //Core points to cluster around
     const corePoints = [
-        new StaticPoint(100, 75, 0),
-        new StaticPoint(300, 75, 1),
-        new StaticPoint(200, 300, 2)
+        new StaticPoint(100, 150, 0),
+        new StaticPoint(500, 150, 1),
+        new StaticPoint(300, 400, 2)
     ];
 
     //Create user-controlled point
     let dynamicPoint = new DynamicPoint(-100, -100);
 
     //Function to draw a point
-    const drawPoint = (p5, p, color='black') => {
-        p5.stroke(color);
+    const drawPoint = (p5, p) => {
+        p5.stroke('black');
         if (p.type === 0) {
-            p5.fill('red');
+            p5.fill('#e63946');
         } else if (p.type === 1) {
-            p5.fill('blue');
+            p5.fill('#457b9d');
         } else if (p.type === 2) {
-            p5.fill('green');
+            p5.fill('#2a9d8f');
         } else {
-            p5.fill('gray');
+            p5.fill('#8d99ae');
         }
         p5.circle(p.x, p.y, POINT_RADIUS);
     }
@@ -51,7 +51,7 @@ export default (props) => {
         } else if (name === 2) {
             return "Green";
         } else {
-            return "None";
+            return "Not found";
         }
     }
 
@@ -71,13 +71,13 @@ export default (props) => {
         //Draw chosen class
         p5.text('Class: ', width + 20, 64);
         if (dynamicPoint.type === 0) {
-            p5.fill('red');
+            p5.fill('#e63946');
         } else if (dynamicPoint.type === 1) {
-            p5.fill('blue');
+            p5.fill('#457b9d');
         } else if (dynamicPoint.type === 2) {
-            p5.fill('green');
+            p5.fill('#2a9d8f');
         } else {
-            p5.fill('gray');
+            p5.fill('#8d99ae');
         }
         p5.text(translateClass(dynamicPoint.type), width + 90, 64);
 
@@ -87,11 +87,11 @@ export default (props) => {
         p5.text('Blue neighbors: ', width + 20, 128);
         p5.text('Green neighbors: ', width + 20, 160);
 
-        p5.fill('red');
+        p5.fill('#e63946');
         p5.text((neighborCounts ? neighborCounts[0].toString() : "0"), width + 200, 96);
-        p5.fill('blue');
+        p5.fill('#457b9d');
         p5.text((neighborCounts ? neighborCounts[1].toString() : "0"), width + 200, 128);
-        p5.fill('green');
+        p5.fill('#2a9d8f');
         p5.text((neighborCounts ? neighborCounts[2].toString() : "0"), width + 200, 160);
     }
 
@@ -105,8 +105,14 @@ export default (props) => {
             //Create about 10 data points for each core points
             for (let i = 0; i != 30; ++i) {
                 //Create points
-                let x = core.x + p5Ref.randomGaussian(0, 30);
-                let y = core.y + p5Ref.randomGaussian(0, 30);
+                let x = core.x + p5Ref.randomGaussian(0, 50);
+                let y = core.y + p5Ref.randomGaussian(0, 50);
+
+                //Check in boud
+                while (!(x >= POINT_RADIUS && x < width - POINT_RADIUS && y >= POINT_RADIUS && y < height - POINT_RADIUS)) {
+                    x = core.x + p5Ref.randomGaussian(0, 50);
+                    y = core.y + p5Ref.randomGaussian(0, 50);
+                }
 
                 //Add points
                 staticPoints.push(new StaticPoint(x, y, core.type));
@@ -183,6 +189,7 @@ export default (props) => {
 
         //Save reference to p5 library
         p5Ref = p5;
+        p5.textFont('Raleway');
 
         generateStaticPoints();
     }

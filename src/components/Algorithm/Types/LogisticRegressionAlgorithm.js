@@ -3,7 +3,7 @@ import Panel from '../Panel/PanelSection';
 import RightPanel from '../Panel/RightPanel';
 import PanelChild from '../Panel/PanelChild';
 
-import Sketch from '../Sketches/logisitcregression/LositicRegression';
+import Sketch from '../Sketches/logisticregression/LositicRegression';
 
 import { useState } from 'react';
 import Menu from '../Menu';
