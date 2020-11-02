@@ -2,17 +2,26 @@ import Model from './Model';
 import Sketch from 'react-p5';
 
 //Store the data outside react component -> Not recommend
-const inputs = [];
-const outputs = [];
+let inputs = [];
+let outputs = [];
 
 //Linear model
-const model = new Model();
+let model = new Model();
 
 //Save model losses
 let losses = [];
 let hasConverged = false;
 
 export default (props) => {
+    //Method for reseting sketch
+    const reset = () => {
+        model = new Model();
+        inputs = [];
+        outputs = [];
+        losses = [];
+        hasConverged = false;
+    }
+
     //Methods for left canvas
     const leftSetup = (p5, canvasParentRef) => {
         p5.createCanvas(400, 400).parent(canvasParentRef);
@@ -151,5 +160,13 @@ export default (props) => {
                 draw={rightDraw}>
             </Sketch>
         </div>
+
+        <div style={{clear: "both"}}></div>
+        <button 
+            onClick={() => reset()} 
+            className="button is-primary sketch-button" 
+            style={{width: "100%"}}>
+            Reset
+        </button>
     </div>
 }
