@@ -9,7 +9,7 @@ let neighborCounts;
 
 export default (props) => {
     //Set canvas width and height
-    const width = 600, height = 600, display = 240;
+    const width = 400, height = 400, display = 240;
 
     //Hold ref to p5 for math functionality
     let p5Ref;
@@ -19,9 +19,9 @@ export default (props) => {
 
     //Core points to cluster around
     const corePoints = [
-        new StaticPoint(100, 150, 0),
-        new StaticPoint(500, 150, 1),
-        new StaticPoint(300, 400, 2)
+        new StaticPoint(100, 75, 0),
+        new StaticPoint(300, 75, 1),
+        new StaticPoint(200, 300, 2)
     ];
 
     //Create user-controlled point

@@ -3,7 +3,7 @@ const Veil = (props) => {
         <div 
             style={
                 {
-                    height: "90%",
+                    minHeight: "90vh",
                     width: "100%",
                     display: "flex",
                     alignItems: "center",

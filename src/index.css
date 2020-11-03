@@ -23,12 +23,12 @@ code {
   overflow: scroll;
   height: 100vh;
   scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(30vh);
+  scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
 }
 
 .snap-child {
-  height: 100vh;
+  min-height: 100vh;
   scroll-snap-align: start;
   position: relative;
 }
@@ -54,7 +54,7 @@ code {
 /*Custom styling for navbar*/
 .home-title {
   color: #F4A261;
-  font-size: 6em;
+  font-size: 5em;
 }
 
 .home-subtitle {
@@ -95,7 +95,7 @@ code {
 }
 
 .carousel-title {
-  font-size: 4em;
+  font-size: 3em;
   color: #457b9d;
 }
 
@@ -118,21 +118,21 @@ code {
 
 .card-chapter {
   color: #457b9d;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .card-name {
   color: #F4A261;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 20px;
 }
 
 .card-description {
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 .card-button {
-  font-size: 1.2em !important;
+  font-size: 1.1em !important;
   border-radius: 30px !important;
 }
 
@@ -148,7 +148,7 @@ code {
 }
 
 .powered-by-title {
-  font-size: 4em;
+  font-size: 3em;
   margin-bottom: 1em;
 }
 
@@ -157,14 +157,14 @@ code {
 }
 
 .powered-card-title {
-  font-size: 3em;
+  font-size: 2em;
   margin: 10px;
 }
 
 .powered-card-content {
   display: inline-block;
   width: 80%;
-  font-size: 2em;
+  font-size: 1em;
   font-weight: 200;
   color: #636363;
 }
@@ -190,12 +190,12 @@ code {
 }
 
 .about-title {
-  font-size: 3em;
+  font-size: 2em;
   color: white;
 }
 
 .about-content {
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 200;
   width: 50%;
   display: inline-block;
@@ -203,7 +203,7 @@ code {
 }
 
 .about-name {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 200;
   color: white;
 }

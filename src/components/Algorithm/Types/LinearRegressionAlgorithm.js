@@ -26,7 +26,7 @@ const Algorithm = (props) => {
             <LeftPanel style={{background: "#F1FAEE", textAlign: "left"}}>
                 <Menu/>
                 <h1 className="algo-left-subtitle">Chapter 1</h1>
-                <h1 className="algo-left-title">Linear regresion</h1>
+                <h1 className="algo-left-title">Linear regression</h1>
                 <PanelChild index={0}>
                     <h1 className="algo-left-header">Linear Equation</h1>
                     <p className="algo-left-text">

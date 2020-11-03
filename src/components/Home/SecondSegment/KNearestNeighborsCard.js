@@ -14,7 +14,7 @@ const KNearestNeighborsCard = (props) => {
                 <Link 
                     to="/chapter4"
                     className="button is-white card-button"
-                    style={{marginTop: "1.5em", paddingLeft: "2em", paddingRight: "2em"}}>
+                    style={{marginTop: "1.5em", paddingLeft: "1.5em", paddingRight: "1.5em"}}>
                     Go to Chapter 4
                 </Link>
             </div>

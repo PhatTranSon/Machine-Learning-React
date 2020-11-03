@@ -21,7 +21,7 @@ export default (props) => {
     const POINT_RADIUS = 15;
 
     //Set dimension of canvas
-    const width = 600, height = 600, display = 240;
+    const width = 400, height = 400, display = 240;
 
     //Function to create cores and cluster
     const generateCluster = () => {

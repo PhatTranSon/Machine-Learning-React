@@ -14,7 +14,7 @@ const Home = (props) => {
         
         <section className="snap-child">
             <Navbar/>
-            <div style={{position: "relative", height: "800px"}}>
+            <div style={{position: "relative"}}>
                 <Veil/>
             </div>
         </section>

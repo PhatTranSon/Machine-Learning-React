@@ -22,9 +22,14 @@ export default (props) => {
         hasConverged = false;
     }
 
+    //Method to handle windows resize
+    const windowResize = (p5) => {
+        p5.resizeCanvas(p5.windowWidth / 4, p5.windowWidth / 4);
+    }
+
     //Methods for left canvas
     const leftSetup = (p5, canvasParentRef) => {
-        p5.createCanvas(400, 400).parent(canvasParentRef);
+        p5.createCanvas(p5.windowWidth / 4, p5.windowWidth / 4).parent(canvasParentRef);
     };
 
     const leftDraw = (p5) => {
@@ -92,7 +97,7 @@ export default (props) => {
 
     //Method for right canvas
     const rightSetup = (p5, canvasParentRef) => {
-        p5.createCanvas(400, 400).parent(canvasParentRef);
+        p5.createCanvas(p5.windowWidth / 4, p5.windowWidth / 4).parent(canvasParentRef);
         p5.noStroke();
     }
 
@@ -150,14 +155,16 @@ export default (props) => {
             <Sketch 
                 setup={leftSetup} 
                 draw={leftDraw}
-                mouseClicked={leftMouseClicked}>
+                mouseClicked={leftMouseClicked}
+                windowResized={windowResize}>
             </Sketch>
         </div>
 
         <div style={{float: "left"}}>
             <Sketch 
                 setup={rightSetup} 
-                draw={rightDraw}>
+                draw={rightDraw}
+                windowResized={windowResize}>
             </Sketch>
         </div>
 

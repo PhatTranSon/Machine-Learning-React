@@ -98,7 +98,7 @@ export default (props) => {
 
     //Set up and draw for left canvas
     const leftSetup = (p5, canvasParentLeft) => {
-        p5.createCanvas(400, 400).parent(canvasParentLeft);
+        p5.createCanvas(350, 350).parent(canvasParentLeft);
         createSegments(p5);
     }
 
@@ -158,7 +158,7 @@ export default (props) => {
 
     //Set up and draw for right canvas
     const rightSetup = (p5, canvasParentRef) => {
-        p5.createCanvas(400, 400).parent(canvasParentRef);
+        p5.createCanvas(350, 350).parent(canvasParentRef);
     }
 
     const rightDraw = (p5) => {

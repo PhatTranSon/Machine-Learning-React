@@ -16,7 +16,7 @@ let points = [];
 
 //List of segments for visualizing purpose
 const SEG_SIZE = 10;
-const segments = [];
+let segments = [];
 
 export default (props) => {
     //Current type of point
@@ -70,14 +70,27 @@ export default (props) => {
         }
     }
 
+    //Handle windows resize
+    const windowsResize = (p5) => {
+        p5.resizeCanvas(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4));
+        initializeSegments(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4), p5);
+    }
+
     const leftSetup = (p5, canvasParentRef) => {
-        p5.createCanvas(400, 400).parent(canvasParentRef);
+        //Set canvas size
+        const width = parseInt(p5.windowWidth / 4), height = parseInt(p5.windowWidth / 4);
+        p5.createCanvas(width, height).parent(canvasParentRef);
         //Initialize segments
-        for (let r = 0; r != p5.width / SEG_SIZE; r++) {
-            for (let c = 0; c != p5.height / SEG_SIZE; ++c) {
+        initializeSegments(width, height, p5);
+    }
+
+    const initializeSegments = (width, height, p5) => {
+        segments = []; ///Reset
+        for (let r = 0; r != Math.round(width / SEG_SIZE); r++) {
+            for (let c = 0; c != Math.round(height / SEG_SIZE); ++c) {
                 //Map to [0, 1] interval
-                let x = p5.map(c * SEG_SIZE, 0, p5.width, 0, 1);
-                let y = p5.map(r * SEG_SIZE, p5.height, 0, 0, 1);
+                let x = p5.map(c * SEG_SIZE, 0, width, 0, 1);
+                let y = p5.map(r * SEG_SIZE, height, 0, 0, 1);
                 //Apppent to segments
                 segments.push([x, y]);
             }
@@ -124,7 +137,7 @@ export default (props) => {
 
     const leftMouseClicked = (p5) => {
         //Check if mouse is in bound
-        if (p5.mouseX >= 0 && p5.mouseX <= p5.width && p5.mouseY >= 0 && p5.mouseY <= p5.height) {
+        if (p5.mouseX > 0 && p5.mouseX <= p5.width && p5.mouseY > 0 && p5.mouseY <= p5.height) {
             //Create a point
             let x = p5.map(p5.mouseX, 0, p5.width, 0, 1);
             let y = p5.map(p5.mouseY, 0, p5.height, 1, 0);
@@ -140,7 +153,7 @@ export default (props) => {
 
     //Draw loss
     const rightSetup = (p5, canvasParentRef) => {
-        p5.createCanvas(400, 400).parent(canvasParentRef);
+        p5.createCanvas(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4)).parent(canvasParentRef);
     }
 
     const rightDraw = (p5) => {
@@ -194,18 +207,22 @@ export default (props) => {
     }
 
     return <div>
-        <Sketch 
-            setup={leftSetup} 
-            draw={leftDraw}
-            mouseClicked={leftMouseClicked}
-            style={{float: "left"}}>
-        </Sketch>
+        <div style={{float: "left"}}>
+            <Sketch 
+                setup={leftSetup} 
+                draw={leftDraw}
+                mouseClicked={leftMouseClicked}
+                windowResized={windowsResize}>
+            </Sketch>
+        </div>
 
-        <Sketch 
-            setup={rightSetup} 
-            draw={rightDraw}
-            style={{float: "left"}}>
-        </Sketch>
+        <div style={{float: "left"}}>
+            <Sketch 
+                setup={rightSetup} 
+                draw={rightDraw}
+                windowsResize={windowsResize}>
+            </Sketch>
+        </div>
 
         <div style={{clear: "both"}}></div>
         
