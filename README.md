@@ -1,3 +1,10 @@
+# useful links:
+
+- report and work distribution: https://rmiteduau-my.sharepoint.com/:f:/g/personal/s3748874_rmit_edu_vn/Egh6W637O75BrfOxEvEk1z0BBdPzSd_SwpcbfvoMjSV_UQ?e=lEWzh0
+
+- trello: ?
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
