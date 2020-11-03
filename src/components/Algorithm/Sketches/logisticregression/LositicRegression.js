@@ -82,8 +82,6 @@ export default (props) => {
         p5.resizeCanvas(width, height);
     }
 
-
-
     const leftSetup = (p5, canvasParentRef) => {
         //Set canvas size
         let width = p5.windowWidth / 4, height = p5.windowWidth / 4;

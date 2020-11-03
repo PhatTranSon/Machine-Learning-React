@@ -1,29 +1,28 @@
 import { StaticPoint, DynamicPoint } from './point';
 import Sketch from 'react-p5';
 import ControlPanel from './ControlPanel';
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 //Save state outside components -> Need to rethink
 let staticPoints = [];
 let neighbors = 5;
 let neighborCounts;
 
+//Core points to cluster around
+let corePoints = [];
+
+//Create user-controlled point
+let dynamicPoint = new DynamicPoint(-100, -100);
+
+//Sizes
+let width, height, display;
+
+//Create holder for points
+let POINT_RADIUS = 15;
+
+//Hold ref to p5 for math functionality
+let p5Ref;
+
 export default (props) => {
-    //Sizes
-    let width, height, display;
-
-    //Hold ref to p5 for math functionality
-    let p5Ref;
-
-    //Create holder for points
-    let POINT_RADIUS = 15;
-
-    //Core points to cluster around
-    let corePoints;
-
-    //Create user-controlled point
-    let dynamicPoint = new DynamicPoint(-100, -100);
-
     //Function to draw a point
     const drawPoint = (p5, p) => {
         p5.stroke('black');
@@ -76,7 +75,7 @@ export default (props) => {
         } else {
             p5.fill('#8d99ae');
         }
-        p5.text(translateClass(dynamicPoint.type), width + 20 + POINT_RADIUS * 5, 64);
+        p5.text(translateClass(dynamicPoint.type), width + 20 + POINT_RADIUS * 3, 64);
 
         //Draw neighbors count
         p5.fill(0);
@@ -85,11 +84,11 @@ export default (props) => {
         p5.text('Green neighbors: ', width + 20, 160);
 
         p5.fill('#e63946');
-        p5.text((neighborCounts ? neighborCounts[0].toString() : "0"), width + 20 + POINT_RADIUS * 10, 96);
+        p5.text((neighborCounts ? neighborCounts[0].toString() : "0"), width + 20 + POINT_RADIUS * 8, 96);
         p5.fill('#457b9d');
-        p5.text((neighborCounts ? neighborCounts[1].toString() : "0"), width + 20 + POINT_RADIUS * 10, 128);
+        p5.text((neighborCounts ? neighborCounts[1].toString() : "0"), width + 20 + POINT_RADIUS * 8, 128);
         p5.fill('#2a9d8f');
-        p5.text((neighborCounts ? neighborCounts[2].toString() : "0"), width + 20 + POINT_RADIUS * 10, 160);
+        p5.text((neighborCounts ? neighborCounts[2].toString() : "0"), width + 20 + POINT_RADIUS * 8, 160);
     }
 
     //Function to generate static points around cores
@@ -215,6 +214,9 @@ export default (props) => {
         height = p5.windowWidth / 3;
         display = p5.windowWidth / 6;
         p5.createCanvas(width + display, height).parent(canvasParentRef);
+
+        //Set point radius
+        POINT_RADIUS = width / 30;
 
         //Create cores
         corePoints = [

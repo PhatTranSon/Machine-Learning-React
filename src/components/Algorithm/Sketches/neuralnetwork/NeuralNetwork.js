@@ -50,8 +50,8 @@ export default (props) => {
     function createSegments(width, height, p5) {
         //Initialize segements
         segments = []; ///Reset
-        for (let r = 0; r != Math.round(width / SEG_SIZE); r++) {
-            for (let c = 0; c != Math.round(height / SEG_SIZE); ++c) {
+        for (let r = 0; r != Math.round(width / SEG_SIZE) + 1; r++) {
+            for (let c = 0; c != Math.round(height / SEG_SIZE) + 1; ++c) {
                 //Apppent to segments
                 segments.push([c * SEG_SIZE, r * SEG_SIZE]);
             }
@@ -99,14 +99,17 @@ export default (props) => {
 
     //Handle windows resize
     const windowResize = (p5) => {
-        p5.resizeCanvas(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4));
-        createSegments(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4), p5);
+        p5.resizeCanvas(p5.windowWidth / 4, p5.windowWidth / 4);
+        createSegments(p5.windowWidth / 4, p5.windowWidth / 4, p5);
     }
 
     //Set up and draw for left canvas
     const leftSetup = (p5, canvasParentRef) => {
-        const width = parseInt(p5.windowWidth / 4), height = parseInt(p5.windowWidth / 4);
+        //Set canvas size dynamically
+        const width = p5.windowWidth / 4, height = p5.windowWidth / 4;
         p5.createCanvas(width, height).parent(canvasParentRef);
+
+        //Create segments for illustrating
         createSegments(width, height, p5);
     }
 
@@ -151,7 +154,7 @@ export default (props) => {
         //Check mouse position if inside canvas
         if (!isTraining && 
             losses.length === 0 &&
-            p5.mouseX >= 0 && p5.mouseX <= p5.width && p5.mouseY >= 0 && p5.mouseY <= p5.height) {
+            p5.mouseX > 0 && p5.mouseX <= p5.width && p5.mouseY > 0 && p5.mouseY <= p5.height) {
             //Map canvas coordinates to [0,1]
             let x = p5.map(p5.mouseX, 0, p5.width, 0, 1);
             let y = p5.map(p5.mouseY, 0, p5.height, 1, 0);
@@ -166,8 +169,11 @@ export default (props) => {
 
     //Set up and draw for right canvas
     const rightSetup = (p5, canvasParentRef) => {
-        const width = parseInt(p5.windowWidth / 4), height = parseInt(p5.windowWidth / 4);
+        const width = p5.windowWidth / 4, height = p5.windowWidth / 4;
         p5.createCanvas(width, height).parent(canvasParentRef);
+
+        //Set font
+        p5.textFont('Raleway');
     }
 
     const rightDraw = (p5) => {

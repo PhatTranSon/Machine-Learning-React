@@ -5,24 +5,24 @@ import ControlPanel from './ControlPanel';
 
 //Save state outside components -> Need rethink
 //Create cores
-const ORIGINS = [
+let ORIGINS = [
     [100, 150],
     [500, 150],
     [300, 500]
 ];
-let points;
+let points = [];
 let cores;
 
 //Save reference to p5 for math utils
 let p5Ref;
 
+//Hold points and cores
+let POINT_RADIUS = 15;
+
+//Sizes
+let width, height, display;
+
 export default (props) => {
-    //Hold points and cores
-    const POINT_RADIUS = 15;
-
-    //Set dimension of canvas
-    const width = 400, height = 400, display = 240;
-
     //Function to create cores and cluster
     const generateCluster = () => {
         //Clear previous point
@@ -36,8 +36,8 @@ export default (props) => {
                 let y = -1;
 
                 while(!(x >= POINT_RADIUS && x <= width - POINT_RADIUS && y >= POINT_RADIUS && y <= height - POINT_RADIUS)) {
-                    x = core[0] + p5Ref.randomGaussian(0, 50);
-                    y = core[1] + p5Ref.randomGaussian(0, 50);
+                    x = core[0] + p5Ref.randomGaussian(0, POINT_RADIUS * 2);
+                    y = core[1] + p5Ref.randomGaussian(0, POINT_RADIUS * 2);
                 }
 
                 points.push(new Point(x, y, null));
@@ -123,12 +123,60 @@ export default (props) => {
         generateCores();
     }
 
+    const scalePoints = (ratio) => {
+        points.forEach(point => {
+            point.x = point.x * ratio;
+            point.y = point.y * ratio;
+        });
+    }
+
+    //Handle resize
+    const windowResized = (p5) => {
+        //Get the new size
+        let newWidth = p5.windowWidth / 3;
+        let newHeight = p5.windowWidth / 3;
+        let newDisplay = p5.windowWidth / 6;
+
+        //Get the ratio
+        let ratio = newWidth / width;
+        POINT_RADIUS *= ratio;
+        scalePoints(ratio);
+
+        //Set new sizes
+        width = newWidth;
+        height = newHeight;
+        display = newDisplay
+
+        //Resize the canvas
+        p5.resizeCanvas(width + display, height);
+    }
+
     //Set up and draw function
     const setup = (p5, canvasParentRef) => {
+        //Create windows
+        width = p5.windowWidth / 3;
+        height = p5.windowWidth / 3;
+        display = p5.windowWidth / 6;
+
         p5.createCanvas(width + display, height).parent(canvasParentRef);
-        p5Ref = p5; //Save reference to use math functionality only
+
+        //Save reference to use math functionality only
+        p5Ref = p5;
+
+        //Set font size
         p5.textFont('Raleway');
+
+        //Set the origin points
+        ORIGINS = [
+            [width * 0.25, width * 0.25],
+            [width * 0.75, width * 0.25],
+            [width * 0.5, width * 0.75]
+        ];
+
+        //Generate cores
+        /*
         generateCluster();
+        */
         generateCores();
     }
 
@@ -161,11 +209,6 @@ export default (props) => {
 
         //Visualize the cores
         cores.forEach(core => {
-            p5.stroke('black');
-            p5.strokeWeight(2);
-            p5.fill(255);
-            p5.circle(core.x, core.y, 20);
-            
             if (core.type === 0) {
                 p5.fill('#e63946');
             } else if (core.type === 1) {
@@ -176,9 +219,9 @@ export default (props) => {
                 p5.fill('#8d99ae');
             }
             
-            p5.noStroke();
-            p5.textSize(20);
-            p5.text('X', core.x - 7, core.y + 7);
+            p5.stroke('black');
+            p5.strokeWeight(5);
+            p5.circle(core.x, core.y, POINT_RADIUS * 1.5);
         });
 
         //Call update according to frame count
@@ -198,38 +241,39 @@ export default (props) => {
 
         //Display text
         p5.fill(0);
-        p5.textSize(20);
+        p5.textSize(POINT_RADIUS);
 
         //Display labels
         p5.fill('#e63946')
         p5.text('Red centroid', width + 20, 32);
 
         p5.fill('#457b9d');
-        p5.text('Blue centriod', width + 20, 128);
+        p5.text('Blue centriod', width + 20, 32 + POINT_RADIUS * 5);
 
         p5.fill('#2a9d8f');
-        p5.text('Green centroid', width + 20, 224);
+        p5.text('Green centroid', width + 20, 32 + POINT_RADIUS * 10);
 
         //Display position
         p5.fill('black');
         
         //Red centroid
-        p5.text('x: ' + cores[0].x.toFixed(2).toString(), width + 40, 64);
-        p5.text('y: ' + cores[0].y.toFixed(2).toString(), width + 40, 96);
+        p5.text('x: ' + cores[0].x.toFixed(2).toString(), width + 40, 32 + POINT_RADIUS * 2);
+        p5.text('y: ' + cores[0].y.toFixed(2).toString(), width + 40, 32 + POINT_RADIUS * 3);
 
         //Blue centroid
-        p5.text('x: ' + cores[1].x.toFixed(2).toString(), width + 40, 160);
-        p5.text('y: ' + cores[1].y.toFixed(2).toString(), width + 40, 192);
+        p5.text('x: ' + cores[1].x.toFixed(2).toString(), width + 40, 32 + POINT_RADIUS * 7);
+        p5.text('y: ' + cores[1].y.toFixed(2).toString(), width + 40, 32 + POINT_RADIUS * 8);
 
         //Green centriod
-        p5.text('x: ' + cores[2].x.toFixed(2).toString(), width + 40, 256);
-        p5.text('y: ' + cores[2].y.toFixed(2).toString(), width + 40, 286);
+        p5.text('x: ' + cores[2].x.toFixed(2).toString(), width + 40, 32 + POINT_RADIUS * 12);
+        p5.text('y: ' + cores[2].y.toFixed(2).toString(), width + 40, 32 + POINT_RADIUS * 13);
     }
 
     return <div>
         <Sketch
             setup={setup}
-            draw={draw}/>
+            draw={draw}
+            windowResized={windowResized}/>
 
         <ControlPanel
             onGenerateClusters={onGenerateClusters}
