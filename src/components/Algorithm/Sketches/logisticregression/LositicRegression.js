@@ -71,16 +71,23 @@ export default (props) => {
     }
 
     //Handle windows resize
-    const windowsResize = (p5) => {
-        p5.resizeCanvas(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4));
-        initializeSegments(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4), p5);
+    const leftWindowResize = (p5) => {
+        let width = p5.windowWidth / 4, height = p5.windowWidth / 4;
+        p5.resizeCanvas(width, height);
+        initializeSegments(width, height, p5);
     }
+
+    const rightWindowResize = (p5) => {
+        let width = p5.windowWidth / 4, height = p5.windowWidth / 4;
+        p5.resizeCanvas(width, height);
+    }
+
+
 
     const leftSetup = (p5, canvasParentRef) => {
         //Set canvas size
-        const width = parseInt(p5.windowWidth / 4), height = parseInt(p5.windowWidth / 4);
+        let width = p5.windowWidth / 4, height = p5.windowWidth / 4;
         p5.createCanvas(width, height).parent(canvasParentRef);
-        //Initialize segments
         initializeSegments(width, height, p5);
     }
 
@@ -153,7 +160,7 @@ export default (props) => {
 
     //Draw loss
     const rightSetup = (p5, canvasParentRef) => {
-        p5.createCanvas(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4)).parent(canvasParentRef);
+        p5.createCanvas(p5.windowWidth / 4, p5.windowWidth / 4).parent(canvasParentRef);
     }
 
     const rightDraw = (p5) => {
@@ -199,6 +206,7 @@ export default (props) => {
 
             //Draw vertex 
             p5.vertex(offset, mappedLoss);
+
             //Increase offset
             offset += offSetChange;
         })
@@ -212,7 +220,7 @@ export default (props) => {
                 setup={leftSetup} 
                 draw={leftDraw}
                 mouseClicked={leftMouseClicked}
-                windowResized={windowsResize}>
+                windowResized={leftWindowResize}>
             </Sketch>
         </div>
 
@@ -220,7 +228,7 @@ export default (props) => {
             <Sketch 
                 setup={rightSetup} 
                 draw={rightDraw}
-                windowsResize={windowsResize}>
+                windowResized={rightWindowResize}>
             </Sketch>
         </div>
 

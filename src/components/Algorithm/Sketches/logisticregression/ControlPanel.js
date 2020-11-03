@@ -30,7 +30,7 @@ export default (props) => {
         <div className="column">
             <button
                 className="button"
-                style={{width: "50%", background: "#90e0ef"}}
+                style={{width: "50%", background: "#90e0ef", fontSize: "1.2vw"}}
                 onClick={() => props.onReset()}>
                 Clear all
             </button>

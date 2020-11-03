@@ -25,7 +25,7 @@ let losses = [];
 
 //Segments for illusrating the prediction boundary
 const SEG_SIZE = 10;
-const segments = [];
+let segments = [];
 
 export default (props) => {
     //Handle user interactions
@@ -47,11 +47,12 @@ export default (props) => {
     }
 
     //Initialize segments
-    function createSegments(p5) {
+    function createSegments(width, height, p5) {
         //Initialize segements
-        for (let c = 0; c != p5.width / SEG_SIZE; ++c) {
-            for (let r = 0; r != p5.height / SEG_SIZE; ++r) {
-                //Append point
+        segments = []; ///Reset
+        for (let r = 0; r != Math.round(width / SEG_SIZE); r++) {
+            for (let c = 0; c != Math.round(height / SEG_SIZE); ++c) {
+                //Apppent to segments
                 segments.push([c * SEG_SIZE, r * SEG_SIZE]);
             }
         }
@@ -96,10 +97,17 @@ export default (props) => {
         }
     }
 
+    //Handle windows resize
+    const windowResize = (p5) => {
+        p5.resizeCanvas(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4));
+        createSegments(parseInt(p5.windowWidth / 4), parseInt(p5.windowWidth / 4), p5);
+    }
+
     //Set up and draw for left canvas
-    const leftSetup = (p5, canvasParentLeft) => {
-        p5.createCanvas(350, 350).parent(canvasParentLeft);
-        createSegments(p5);
+    const leftSetup = (p5, canvasParentRef) => {
+        const width = parseInt(p5.windowWidth / 4), height = parseInt(p5.windowWidth / 4);
+        p5.createCanvas(width, height).parent(canvasParentRef);
+        createSegments(width, height, p5);
     }
 
     const leftDraw = (p5) => {
@@ -158,7 +166,8 @@ export default (props) => {
 
     //Set up and draw for right canvas
     const rightSetup = (p5, canvasParentRef) => {
-        p5.createCanvas(350, 350).parent(canvasParentRef);
+        const width = parseInt(p5.windowWidth / 4), height = parseInt(p5.windowWidth / 4);
+        p5.createCanvas(width, height).parent(canvasParentRef);
     }
 
     const rightDraw = (p5) => {
@@ -210,18 +219,23 @@ export default (props) => {
     }
 
     return <div>
-        <Sketch 
-            setup={leftSetup}
-            draw={leftDraw}
-            mouseClicked={leftMouseClicked}
-            style={{float: "left"}}> 
-        </Sketch>
+        <div style={{float: "left"}}>
+            <Sketch 
+                setup={leftSetup}
+                draw={leftDraw}
+                mouseClicked={leftMouseClicked}
+                windowResized={windowResize}
+                > 
+            </Sketch>
+        </div>
 
-        <Sketch 
-            setup={rightSetup}
-            draw={rightDraw}
-            style={{float: "left"}}> 
-        </Sketch>
+        <div style={{float: "left"}}>
+            <Sketch 
+                setup={rightSetup}
+                draw={rightDraw}
+                windowResized={windowResize}> 
+            </Sketch>
+        </div>
 
         <div style={{clear: "both"}}></div>
 

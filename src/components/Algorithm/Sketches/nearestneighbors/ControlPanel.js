@@ -21,12 +21,13 @@ export default (props) => {
                                 type="text"
                                 name="neighbors" 
                                 placeholder="Enter the number of neighbors (K)"
-                                className="input"/>
+                                className="input"
+                                style={{fontSize: "1.2vw"}}/>
                         </div>
                         <div className="control" style={{width: "50%"}}>
                             <button
                                 className="button is-primary"
-                                style={{width: "100%", background: "#b7e4c7"}}>
+                                style={{width: "100%", background: "#b7e4c7", fontSize: "1.2vw"}}>
                                 Set neighbors
                             </button>
                         </div>
@@ -37,7 +38,7 @@ export default (props) => {
         <div className="column is-two-fifths">
             <button
                 className="button"
-                style={{width: "100%", background: "#52b788", color: "white"}}
+                style={{width: "100%", background: "#52b788", color: "white", fontSize: "1.2vw"}}
                 onClick={onRegenerate}>
                     Regenerate cores
             </button>

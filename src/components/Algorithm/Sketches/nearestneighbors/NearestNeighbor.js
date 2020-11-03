@@ -1,6 +1,7 @@
 import { StaticPoint, DynamicPoint } from './point';
 import Sketch from 'react-p5';
 import ControlPanel from './ControlPanel';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 //Save state outside components -> Need to rethink
 let staticPoints = [];
@@ -8,21 +9,17 @@ let neighbors = 5;
 let neighborCounts;
 
 export default (props) => {
-    //Set canvas width and height
-    const width = 400, height = 400, display = 240;
+    //Sizes
+    let width, height, display;
 
     //Hold ref to p5 for math functionality
     let p5Ref;
 
     //Create holder for points
-    const POINT_RADIUS = 15;
+    let POINT_RADIUS = 15;
 
     //Core points to cluster around
-    const corePoints = [
-        new StaticPoint(100, 75, 0),
-        new StaticPoint(300, 75, 1),
-        new StaticPoint(200, 300, 2)
-    ];
+    let corePoints;
 
     //Create user-controlled point
     let dynamicPoint = new DynamicPoint(-100, -100);
@@ -63,7 +60,7 @@ export default (props) => {
 
         //Write text
         p5.fill(0);
-        p5.textSize(20);
+        p5.textSize(POINT_RADIUS);
 
         //Draw number of neighbors
         p5.text('K: ' + neighbors.toString(), width + 20, 32)
@@ -79,7 +76,7 @@ export default (props) => {
         } else {
             p5.fill('#8d99ae');
         }
-        p5.text(translateClass(dynamicPoint.type), width + 90, 64);
+        p5.text(translateClass(dynamicPoint.type), width + 20 + POINT_RADIUS * 5, 64);
 
         //Draw neighbors count
         p5.fill(0);
@@ -88,11 +85,11 @@ export default (props) => {
         p5.text('Green neighbors: ', width + 20, 160);
 
         p5.fill('#e63946');
-        p5.text((neighborCounts ? neighborCounts[0].toString() : "0"), width + 200, 96);
+        p5.text((neighborCounts ? neighborCounts[0].toString() : "0"), width + 20 + POINT_RADIUS * 10, 96);
         p5.fill('#457b9d');
-        p5.text((neighborCounts ? neighborCounts[1].toString() : "0"), width + 200, 128);
+        p5.text((neighborCounts ? neighborCounts[1].toString() : "0"), width + 20 + POINT_RADIUS * 10, 128);
         p5.fill('#2a9d8f');
-        p5.text((neighborCounts ? neighborCounts[2].toString() : "0"), width + 200, 160);
+        p5.text((neighborCounts ? neighborCounts[2].toString() : "0"), width + 20 + POINT_RADIUS * 10, 160);
     }
 
     //Function to generate static points around cores
@@ -117,6 +114,13 @@ export default (props) => {
                 //Add points
                 staticPoints.push(new StaticPoint(x, y, core.type));
             }
+        });
+    }
+
+    const scalePoints = (ratio) => {
+        staticPoints.forEach(point => {
+            point.x = point.x * ratio;
+            point.y = point.y * ratio;
         });
     }
 
@@ -183,9 +187,41 @@ export default (props) => {
         neighbors = parseInt(totalNeighbors);
     }
 
+    //Handle resize
+    const windowResized = (p5) => {
+        //Get the new size
+        let newWidth = p5.windowWidth / 3;
+        let newHeight = p5.windowWidth / 3;
+        let newDisplay = p5.windowWidth / 6;
+
+        //Get the ratio
+        let ratio = newWidth / width;
+        POINT_RADIUS *= ratio;
+        scalePoints(ratio);
+
+        //Set new sizes
+        width = newWidth;
+        height = newHeight;
+        display = newDisplay
+
+        //Resize the canvas
+        p5.resizeCanvas(width + display, height);
+    }
+
     //Set up and draw function for left canvas
     const leftSetup = (p5, canvasParentRef) => {
+        //Create windows
+        width = p5.windowWidth / 3;
+        height = p5.windowWidth / 3;
+        display = p5.windowWidth / 6;
         p5.createCanvas(width + display, height).parent(canvasParentRef);
+
+        //Create cores
+        corePoints = [
+            new StaticPoint(width * 0.25, height * 0.3, 0),
+            new StaticPoint(width * 0.75, height * 0.3, 1),
+            new StaticPoint(width * 0.5, height * 0.75, 2)
+        ];
 
         //Save reference to p5 library
         p5Ref = p5;
@@ -246,7 +282,8 @@ export default (props) => {
         <Sketch 
             setup={leftSetup}
             draw={leftDraw}
-            mouseMoved={leftMouseMove}>
+            mouseMoved={leftMouseMove}
+            windowResized={windowResized}>
         </Sketch>
 
         <ControlPanel
