@@ -44,34 +44,36 @@ class PoweredBy extends React.Component {
     render() {
         return (
             <div className="powered-by">
-                <h1 className="powered-by-title">Powered by</h1>
-                <div className="columns">
-                    <div className="column">
-                        <Animated 
-                            animationInDelay={0}
-                            animationIn="bounceInLeft" 
-                            animationOut="fadeOut" 
-                            isVisible={this.state.isVisible}>
-                            <P5Card/>
-                        </Animated>
-                    </div>
-                    <div className="column">
-                        <Animated 
-                            animationInDelay={500}
-                            animationIn="bounceInLeft" 
-                            animationOut="fadeOut" 
-                            isVisible={this.state.isVisible}>
-                            <TensorflowCard/>
-                        </Animated>
-                    </div>
-                    <div className="column">
-                        <Animated 
-                            animationInDelay={1000}
-                            animationIn="bounceInLeft" 
-                            animationOut="fadeOut" 
-                            isVisible={this.state.isVisible}>
-                            <ConvNetCard/>
-                        </Animated>
+                <div>
+                    <h1 className="powered-by-title">Powered by</h1>
+                    <div className="columns">
+                        <div className="column">
+                            <Animated 
+                                animationInDelay={0}
+                                animationIn="bounceInLeft" 
+                                animationOut="fadeOut" 
+                                isVisible={this.state.isVisible}>
+                                <P5Card/>
+                            </Animated>
+                        </div>
+                        <div className="column">
+                            <Animated 
+                                animationInDelay={500}
+                                animationIn="bounceInLeft" 
+                                animationOut="fadeOut" 
+                                isVisible={this.state.isVisible}>
+                                <TensorflowCard/>
+                            </Animated>
+                        </div>
+                        <div className="column">
+                            <Animated 
+                                animationInDelay={1000}
+                                animationIn="bounceInLeft" 
+                                animationOut="fadeOut" 
+                                isVisible={this.state.isVisible}>
+                                <ConvNetCard/>
+                            </Animated>
+                        </div>
                     </div>
                 </div>
             </div>

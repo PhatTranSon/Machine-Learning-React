@@ -54,16 +54,16 @@ code {
 /*Custom styling for navbar*/
 .home-title {
   color: #F4A261;
-  font-size: 5em;
+  font-size: 10vh;
 }
 
 .home-subtitle {
   color: #457b9d;
-  font-size: 1.5em;
+  font-size: 4vh;
 }
 
 .home-button {
-  font-size: 1.2em !important;
+  font-size: 3vhem !important;
   border-radius: 30px !important;
   background: black !important;
   color: white !important;
@@ -95,7 +95,7 @@ code {
 }
 
 .carousel-title {
-  font-size: 3em;
+  font-size: 7vh;
   color: #457b9d;
 }
 
@@ -118,21 +118,21 @@ code {
 
 .card-chapter {
   color: #457b9d;
-  font-size: 1.2em;
+  font-size: 4vh;
 }
 
 .card-name {
   color: #F4A261;
-  font-size: 1.5em;
+  font-size: 5vh;
   margin-bottom: 20px;
 }
 
 .card-description {
-  font-size: 1.1em;
+  font-size: 3vh;
 }
 
 .card-button {
-  font-size: 1.1em !important;
+  font-size: 2vh !important;
   border-radius: 30px !important;
 }
 
@@ -142,13 +142,19 @@ code {
 }
 
 /*Powered by section*/
+#powered-by-section {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
 .powered-by {
   margin-top: 30px;
   text-align: center;
 }
 
 .powered-by-title {
-  font-size: 3em;
+  font-size: 7vh;
   margin-bottom: 1em;
 }
 
@@ -157,21 +163,21 @@ code {
 }
 
 .powered-card-title {
-  font-size: 2em;
+  font-size: 5vh;
   margin: 10px;
 }
 
 .powered-card-content {
   display: inline-block;
   width: 80%;
-  font-size: 1em;
+  font-size: 3vh;
   font-weight: 200;
   color: #636363;
 }
 
 .powered-card-button {
-  font-size: 1.2em !important;
-  border-radius: 30px !important;
+  font-size: 3vh !important;
+  border-radius: 3vh !important;
   margin: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -183,19 +189,25 @@ code {
 /*About section*/
 .about {
   text-align: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 #about-us-section {
   background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 .about-title {
-  font-size: 2em;
+  font-size: 7vh;
   color: white;
 }
 
 .about-content {
-  font-size: 1em;
+  font-size: 2vh;
   font-weight: 200;
   width: 50%;
   display: inline-block;
@@ -203,20 +215,20 @@ code {
 }
 
 .about-name {
-  font-size: 1.2em;
+  font-size: 3vh;
   font-weight: 200;
   color: white;
 }
 
 .contact-button {
   font-weight: 800;
-  font-size: 1.7em;
+  font-size: 5vh;
   color: rgba(0, 0, 0, 0.5);
   background: white;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.5);
-  width: 2.7em;
-  height: 2.7em;
+  width: 15vh;
+  height: 15vh;
   transition: all 200ms ease-in;
 }
 
