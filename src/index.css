@@ -63,8 +63,8 @@ code {
 }
 
 .home-button {
-  font-size: 3vhem !important;
-  border-radius: 30px !important;
+  font-size: 3vh !important;
+  border-radius: 3vh !important;
   background: black !important;
   color: white !important;
 }
@@ -72,25 +72,26 @@ code {
 /*Custom style for carou*/
 .carousel-section {
   background: rgba(0, 0, 0, 0.2);
-} 
+}
+
 .slick-prev {
-  font-size: 2em !important;
+  font-size: 5vh !important;
   left: 3% !important;
   z-index: 1;
 }
 
 .slick-next {
-  font-size: 2em !important;
+  font-size: 5vh !important;
   right: 3% !important;
   z-index: 1;
 }
 
 .slick-prev:before {
-  font-size: 2em !important;
+  font-size: 5vh !important;
   color: #aaaaaa !important;
 }
 .slick-next:before {
-  font-size: 2em !important;
+  font-size: 5vh !important;
   color: #aaaaaa !important;
 }
 
@@ -261,23 +262,23 @@ code {
 }
 
 .algo-left-subtitle {
-  font-size: 2em;
+  font-size: 3vh;
   color: rgba(0, 0, 0, 0.5);
   padding-left: 50px;
 }
 
 .algo-left-title {
-  font-size: 3em;
+  font-size: 5vh;
   padding-left: 50px;
 }
 
 .algo-left-text {
-  font-size: 1.2em;
+  font-size: 2vh;
   color: black;
 }
 
 .algo-left-header {
-  font-size: 2em;
+  font-size: 3vh;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -292,8 +293,8 @@ code {
 /*Footer for left algo panel*/
 .algo-footer {
   color: white;
-  padding: 60px;
-  font-size: 1.5em;
+  padding: 5vh;
+  font-size: 2vh;
   text-align: center;
   background: #264653;
   width: 100%;
