@@ -1,12 +1,11 @@
 import Sketch from 'react-p5';
 
-//Variables
-let capture;
-let detector;
-let detections = [];
-let modelReady = false;
-
 export default (props) => {
+    //Variables
+    let capture;
+    let detector;
+    let detections = [];
+    let modelReady = false;
 
     const preload = (p5) => {
         //Load detector
