@@ -3,6 +3,8 @@ import Panel from '../Panel/PanelSection';
 import RightPanel from '../Panel/RightPanel';
 import PanelChild from '../Panel/PanelChild';
 
+import Sketch from '../Sketches/objectdetection/ObjectDetection';
+
 import { useState } from 'react';
 import Menu from '../Menu';
 
@@ -51,7 +53,7 @@ const Algorithm = (props) => {
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>
                 <div>
-                    <h1>1</h1>
+                    <h1><Sketch/></h1>
                 </div>
 
                 <div>
