@@ -3,8 +3,6 @@ import Panel from '../Panel/PanelSection';
 import RightPanel from '../Panel/RightPanel';
 import PanelChild from '../Panel/PanelChild';
 
-import Sketch from '../Sketches/kmeanclustering/Clustering';
-
 import { useState } from 'react';
 import Menu from '../Menu';
 
@@ -24,36 +22,36 @@ const Algorithm = (props) => {
 
     return <div>
         <Panel onScrollTo={onScrollTo}>
-            <LeftPanel style={{background: "#ecbcfd", textAlign: "left"}}>
+            <LeftPanel style={{background: "#e9c46a", textAlign: "left"}}>
                 <Menu/>
-                <h1 className="algo-left-subtitle">Chapter 5</h1>
-                <h1 className="algo-left-title">K Mean Clustering</h1>
+                <h1 className="algo-left-subtitle">Chapter 6</h1>
+                <h1 className="algo-left-title">Object Detection</h1>
                 <PanelChild index={0}>
-                    <h1 className="algo-left-header">Unsuperivsed</h1>
+                    <h1 className="algo-left-header">Detection vs. Classification</h1>
                     <p className="algo-left-text">
                         Cloud IoT Core is a fully managed service that allows you to easily and securely connect, manage, and ingest data from millions of globally dispersed devices. Cloud IoT Core, in combination with other services on Google Cloud platform, provides a complete solution for collecting, processing, analyzing, and visualizing IoT data in real time to support improved operational efficiency.
                     </p>
                 </PanelChild>
                 <PanelChild index={1}>
-                    <h1 className="algo-left-header">Distance</h1>
+                    <h1 className="algo-left-header">Bounding box and label</h1>
                     <p className="algo-left-text">
                         Cloud IoT Core is a fully managed service that allows you to easily and securely connect, manage, and ingest data from millions of globally dispersed devices. Cloud IoT Core, in combination with other services on Google Cloud platform, provides a complete solution for collecting, processing, analyzing, and visualizing IoT data in real time to support improved operational efficiency.
                     </p>
                 </PanelChild>
                 <PanelChild index={2}>
-                    <h1 className="algo-left-header">Centroid</h1>
+                    <h1 className="algo-left-header">Architecture</h1>
                     <p className="algo-left-text">
                         Cloud IoT Core is a fully managed service that allows you to easily and securely connect, manage, and ingest data from millions of globally dispersed devices. Cloud IoT Core, in combination with other services on Google Cloud platform, provides a complete solution for collecting, processing, analyzing, and visualizing IoT data in real time to support improved operational efficiency.
                     </p>
                 </PanelChild>
-                <Link to="/chapter6" className="algo-footer">
-                    <p>Go to</p>
-                    <p>Chapter 6 <FontAwesomeIcon icon={faArrowRight}/></p>
+                <Link to="/" className="algo-footer">
+                    <p>Back</p>
+                    <p>Home <FontAwesomeIcon icon={faArrowRight}/></p>
                 </Link>
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>
                 <div>
-                    <Sketch/>
+                    <h1>1</h1>
                 </div>
 
                 <div>

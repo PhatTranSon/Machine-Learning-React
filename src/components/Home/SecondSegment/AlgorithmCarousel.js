@@ -4,6 +4,7 @@ import LogisticRegressionCard from './LogisticRegressionCard';
 import NeuralNetworkCard from './NeuralNetworkCard';
 import KNearestNeighborsCard from './KNearestNeighborsCard';
 import KMeanCard from './KMeanCard';
+import ObjectDetectionCard from './ObjectDetectionCard';
 
 const AlgorithmCarousel = (props) => {
     const settings = {
@@ -33,6 +34,9 @@ const AlgorithmCarousel = (props) => {
             </div>
             <div>
                 <KMeanCard/>
+            </div>
+            <div>
+                <ObjectDetectionCard/>
             </div>
         </Slider>
       );

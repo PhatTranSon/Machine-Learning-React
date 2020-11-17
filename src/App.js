@@ -6,6 +6,7 @@ import LogisiticAlgorithm from './components/Algorithm/Types/LogisticRegressionA
 import NeuralNetworkAlgorithm from './components/Algorithm/Types/NeuralNetworkAlgorithm';
 import KNearestNeighborAlgorithm from './components/Algorithm/Types/KNearestNeighborAlgorithm';
 import KMeanClusteringAlgorithm from './components/Algorithm/Types/KMeanAlgorithm';
+import ObjectDetectionAlgorithm from './components/Algorithm/Types/ObjectDetectionAlgorithm';
 
 import ScrollToTop from './components/Common/ScrollToTop';
 
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path="/chapter5">
             <KMeanClusteringAlgorithm/>
+          </Route>
+          <Route exact path="/chapter6">
+            <ObjectDetectionAlgorithm/>
           </Route>
         </Switch>
       </div>
