@@ -1,58 +1,68 @@
 import Sketch from 'react-p5';
+import React from 'react';
 
-export default (props) => {
-    //Variables
-    let capture;
-    let detector;
-    let detections = [];
-    let modelReady = false;
+class ODSketch extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const preload = (p5) => {
-        //Load detector
-        detector = window.ml5.objectDetector('cocossd', {}, modelLoaded);
+        //Variables
+        this.capture = null;
+        this.detector = null;
+        this.detections = [];
+        this.modelReady = false;
+
+        //Bind
+        this.onResults = this.onResults.bind(this);
+        this.modelLoader = this.modelLoader.bind(this);
+    }
+    
+
+    preload(p5) {
+        this.detector = window.ml5.objectDetector('cocossd', {}, this.modelLoader);
     }
 
-    const modelLoaded = () => {
+    modelLoader() {
         //TODO: Handle model loaded
-        modelReady = true //Set model loaded to true
+        this.modelReady = true //Set model loaded to true
+        //console.log('loaded');
     }
 
-    const onResults = (error, results) => {
+    onResults(error, results) {
         //If there is an error
         if (error) {
           //Error handling
           console.log(error);
         } else {
           //Set results
-          detections = results;
+          this.detections = results;
         }
         
-        //Call detector again
-        detector.detect(capture, onResults);
+        //Call this.detector again
+        this.detector.detect(this.capture, this.onResults);
     }
 
-    const setup = (p5, canvasParentRef) => {
+    setup(p5, canvasParentRef) {
         //Create canvas
         p5.createCanvas(640, 480).parent(canvasParentRef);
   
-        //Create capture
-        capture = p5.createCapture(p5.VIDEO);
-        capture.size(640, 480);
-        capture.hide();
+        //Create this.capture
+        this.capture = p5.createCapture(p5.VIDEO);
+        this.capture.size(640, 480);
+        this.capture.hide();
         
         //Start detection
-        detector.detect(capture, onResults);
+        this.detector.detect(this.capture, this.onResults);
     }
 
-    const draw = (p5) => {
+    draw(p5) {
         p5.background('#A8DADC');
   
-        if (modelReady) {
+        if (this.modelReady) {
             //Draw image on Canvas
-            p5.image(capture, 0, 0);
+            p5.image(this.capture, 0, 0);
             
-            //Draw detections
-            detections.forEach(detection => {
+            //Draw this.detections
+            this.detections.forEach(detection => {
                 //Get the coordinates
                 const { x, y, width, height, label } = detection;
                 
@@ -79,9 +89,13 @@ export default (props) => {
         }
     }
     
-    return (
-        <div>
-            <Sketch setup={setup} draw={draw} preload={preload}/>
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <Sketch setup={this.setup.bind(this)} draw={this.draw.bind(this)} preload={this.preload.bind(this)}/>
+            </div>
+        )
+    }
 }
+
+export default ODSketch;
