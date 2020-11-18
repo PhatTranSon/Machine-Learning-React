@@ -10,12 +10,22 @@ class ODSketch extends React.Component {
         this.detector = null;
         this.detections = [];
         this.modelReady = false;
+        this.stop = false;
 
         //Bind
         this.onResults = this.onResults.bind(this);
         this.modelLoader = this.modelLoader.bind(this);
+
+        //Set
+        this.state = {
+            running: true
+        }
     }
-    
+
+    componentWillUnmount() {
+        this.stop = true;
+        this.detector = null;
+    }
 
     preload(p5) {
         this.detector = window.ml5.objectDetector('cocossd', {}, this.modelLoader);
@@ -38,7 +48,11 @@ class ODSketch extends React.Component {
         }
         
         //Call this.detector again
-        this.detector.detect(this.capture, this.onResults);
+        if (!this.stop) {
+            this.detector.detect(this.capture, this.onResults);
+        } else {
+            this.capture.remove();
+        }
     }
 
     setup(p5, canvasParentRef) {
@@ -90,9 +104,13 @@ class ODSketch extends React.Component {
     }
     
     render() {
+        const { running } = this.state;
         return (
             <div>
-                <Sketch setup={this.setup.bind(this)} draw={this.draw.bind(this)} preload={this.preload.bind(this)}/>
+                {
+                    running ? <Sketch setup={this.setup.bind(this)} draw={this.draw.bind(this)} preload={this.preload.bind(this)}/> :
+                    null
+                }
             </div>
         )
     }

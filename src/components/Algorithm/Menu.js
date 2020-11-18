@@ -39,10 +39,13 @@ class Menu extends React.Component {
                             Chapter 3: Neural Network
                         </Link>
                         <Link to="/chapter4" className="dropdown-item">
-                            Chapter 4: K Nearest Neighbors
+                            Chapter 4: Object Detection
                         </Link>
                         <Link to="/chapter5" className="dropdown-item">
-                            Chapter 5: K Mean clustering
+                            Chapter 5: K Nearest Neighbors
+                        </Link>
+                        <Link to="/chapter6" className="dropdown-item">
+                            Chapter 6: K Mean clustering
                         </Link>
                     </div>
                 </div>

@@ -26,7 +26,7 @@ const Algorithm = (props) => {
         <Panel onScrollTo={onScrollTo}>
             <LeftPanel style={{background: "#b7e4c7", textAlign: "left"}}>
                 <Menu/>
-                <h1 className="algo-left-subtitle">Chapter 4</h1>
+                <h1 className="algo-left-subtitle">Chapter 5</h1>
                 <h1 className="algo-left-title">K Nearest Neighbors</h1>
                 <PanelChild index={0}>
                     <h1 className="algo-left-header">Non-parametric</h1>
@@ -46,9 +46,9 @@ const Algorithm = (props) => {
                         Cloud IoT Core is a fully managed service that allows you to easily and securely connect, manage, and ingest data from millions of globally dispersed devices. Cloud IoT Core, in combination with other services on Google Cloud platform, provides a complete solution for collecting, processing, analyzing, and visualizing IoT data in real time to support improved operational efficiency.
                     </p>
                 </PanelChild>
-                <Link to="/chapter5" className="algo-footer">
+                <Link to="/chapter6" className="algo-footer">
                     <p>Next</p>
-                    <p>Chapter 5 <FontAwesomeIcon icon={faArrowRight}/></p>
+                    <p>Chapter 6 <FontAwesomeIcon icon={faArrowRight}/></p>
                 </Link>
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>

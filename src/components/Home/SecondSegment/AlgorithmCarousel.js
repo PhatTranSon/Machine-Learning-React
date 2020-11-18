@@ -30,13 +30,13 @@ const AlgorithmCarousel = (props) => {
                 <NeuralNetworkCard/>
             </div>
             <div>
+                <ObjectDetectionCard/>
+            </div>
+            <div>
                 <KNearestNeighborsCard/>
             </div>
             <div>
                 <KMeanCard/>
-            </div>
-            <div>
-                <ObjectDetectionCard/>
             </div>
         </Slider>
       );

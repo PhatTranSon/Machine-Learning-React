@@ -19,34 +19,35 @@ import {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop/>
-      <div className="App">
-        <Switch>
-          <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route exact path="/chapter1">
-            <RegressionAlgorithm/>
-          </Route>
-          <Route exact path="/chapter2">
-           <LogisiticAlgorithm/>
-          </Route>
-          <Route exact path="/chapter3">
-            <NeuralNetworkAlgorithm/>
-          </Route>
-          <Route exact path="/chapter4">
-            <KNearestNeighborAlgorithm/>
-          </Route>
-          <Route exact path="/chapter5">
-            <KMeanClusteringAlgorithm/>
-          </Route>
-          <Route exact path="/chapter6">
-            <ObjectDetectionAlgorithm/>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <Router>
+        <ScrollToTop/>
+        
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route exact path="/chapter1">
+              <RegressionAlgorithm/>
+            </Route>
+            <Route exact path="/chapter2">
+            <LogisiticAlgorithm/>
+            </Route>
+            <Route exact path="/chapter3">
+              <NeuralNetworkAlgorithm/>
+            </Route>
+            <Route exact path="/chapter4">
+              <ObjectDetectionAlgorithm/>
+            </Route>
+            <Route exact path="/chapter5">
+              <KNearestNeighborAlgorithm/>
+            </Route>
+            <Route exact path="/chapter6">
+              <KMeanClusteringAlgorithm/>
+            </Route>
+          </Switch>
+      </Router>
+    </div>
   );
 }
 

@@ -46,9 +46,9 @@ const Algorithm = (props) => {
                         Cloud IoT Core is a fully managed service that allows you to easily and securely connect, manage, and ingest data from millions of globally dispersed devices. Cloud IoT Core, in combination with other services on Google Cloud platform, provides a complete solution for collecting, processing, analyzing, and visualizing IoT data in real time to support improved operational efficiency.
                     </p>
                 </PanelChild>
-                <Link to="/" className="algo-footer">
-                    <p>Back</p>
-                    <p>Home <FontAwesomeIcon icon={faArrowRight}/></p>
+                <Link to="/chapter5" className="algo-footer">
+                    <p>Go to</p>
+                    <p>Chapter 5 <FontAwesomeIcon icon={faArrowRight}/></p>
                 </Link>
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>
