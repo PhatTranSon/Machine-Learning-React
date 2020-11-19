@@ -26,7 +26,7 @@ const Algorithm = (props) => {
         <Panel onScrollTo={onScrollTo}>
             <LeftPanel style={{background: "#e9c46a", textAlign: "left"}}>
                 <Menu/>
-                <h1 className="algo-left-subtitle">Chapter 6</h1>
+                <h1 className="algo-left-subtitle">Chapter 4</h1>
                 <h1 className="algo-left-title">Object Detection</h1>
                 <PanelChild index={0}>
                     <h1 className="algo-left-header">Detection vs. Classification</h1>
