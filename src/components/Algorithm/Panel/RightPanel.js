@@ -13,7 +13,7 @@ const RightPanel = (props) => {
                             return React.cloneElement(child, {
                                 style: {
                                     ...child.props.style,
-                                    display: "block"
+                                    display: "inline-block"
                                 }
                             });
                         } else {
