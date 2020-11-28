@@ -91,21 +91,21 @@ const Algorithm = (props) => {
                 </Link>
             </LeftPanel>
             <RightPanel currentIndex={currentIndex}>
-                <div style={{textAlign:"center"}}>
-                    <div style={{width: "80%", height: "80%", display: "inline-block"}}>
-                        <img src={LineEquation} alt="Line equation" style={{ display: "block" }}/>
+                <div>
+                    <div className="image-holder">
+                        <img src={LineEquation} alt="Line equation" className="panel-image"/>
                     </div>
                 </div>
 
-                <div style={{textAlign:"center"}}>
-                    <div style={{width: "80%", height: "80%", display: "inline-block"}}>
-                        <img src={LinearRegressionLoss} alt="Loss function" style={{ display: "block" }}/>
+                <div>
+                    <div className="image-holder">
+                        <img src={LinearRegressionLoss} alt="Loss function" className="panel-image"/>
                     </div>
                 </div>
 
-                <div style={{textAlign: "center"}}>
-                    <div style={{width: "80%", height: "80%", display: "inline-block"}}>
-                        <img src={GradientDescent} alt="Gradient descent" style={{ display: "block" }}/>
+                <div>
+                    <div className="image-holder">
+                        <img src={GradientDescent} alt="Gradient descent" className="panel-image"/>
                     </div>
                 </div>
 

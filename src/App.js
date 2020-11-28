@@ -2,7 +2,7 @@ import './App.css';
 import Home from './components/Home/Home';
 
 import RegressionAlgorithm from './components/Algorithm/Types/LinearRegression/LinearRegressionAlgorithm';
-import LogisiticAlgorithm from './components/Algorithm/Types/LogisticRegressionAlgorithm';
+import LogisiticAlgorithm from './components/Algorithm/Types/LogisticRegression/LogisticRegressionAlgorithm';
 import NeuralNetworkAlgorithm from './components/Algorithm/Types/NeuralNetworkAlgorithm';
 import KNearestNeighborAlgorithm from './components/Algorithm/Types/KNearestNeighborAlgorithm';
 import KMeanClusteringAlgorithm from './components/Algorithm/Types/KMeanAlgorithm';
