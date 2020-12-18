@@ -84,7 +84,7 @@ const Algorithm = (props) => {
                         <MathJax.Provider>
                             In order to find the best decision boundary, we need to have some sort of criteria of how 'good' a boundary is? Similar to the case of linear regression, we also define a loss function. In the context of Logistic regression, the loss in defined as 
                             <p className="equation-text">
-                                <MathJax.Node formula={"\\text{Log loss} = \\sum - y * log(\\hat{y}) - (1 - y) * log(1 - \\hat{y})"} />
+                                <MathJax.Node formula={"\\text{Loss} = \\sum - y * log(\\hat{y}) - (1 - y) * log(1 - \\hat{y})"} />
                             </p>
                             Where <MathJax.Node inline formula={"y"} /> and <MathJax.Node inline formula={"\\hat{y}"} /> are true label and prediction respectively<br /><br />
                             The lower the log loss is, the better our model predicts the true labels and hence its higher accuracy. As the model whose log loss is lowest is highly desirable, the ultimate question is: how to find it? The answer is again <MathJax.Node inline formula={"\\text{Gradient Descent}"} />.

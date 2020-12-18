@@ -3,7 +3,7 @@ import Home from './components/Home/Home';
 
 import RegressionAlgorithm from './components/Algorithm/Types/LinearRegression/LinearRegressionAlgorithm';
 import LogisiticAlgorithm from './components/Algorithm/Types/LogisticRegression/LogisticRegressionAlgorithm';
-import NeuralNetworkAlgorithm from './components/Algorithm/Types/NeuralNetworkAlgorithm';
+import NeuralNetworkAlgorithm from './components/Algorithm/Types/NeuralNetwork/NeuralNetworkAlgorithm';
 import KNearestNeighborAlgorithm from './components/Algorithm/Types/KNearestNeighborAlgorithm';
 import KMeanClusteringAlgorithm from './components/Algorithm/Types/KMeanAlgorithm';
 import ObjectDetectionAlgorithm from './components/Algorithm/Types/ObjectDetectionAlgorithm';
@@ -22,7 +22,6 @@ function App() {
     <div className="App">
       <Router>
         <ScrollToTop/>
-        
           <Switch>
             <Route exact path="/">
               <Home/>
