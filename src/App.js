@@ -6,7 +6,7 @@ import LogisiticAlgorithm from './components/Algorithm/Types/LogisticRegression/
 import NeuralNetworkAlgorithm from './components/Algorithm/Types/NeuralNetwork/NeuralNetworkAlgorithm';
 import KNearestNeighborAlgorithm from './components/Algorithm/Types/KNearestNeighborAlgorithm';
 import KMeanClusteringAlgorithm from './components/Algorithm/Types/KMeanAlgorithm';
-import ObjectDetectionAlgorithm from './components/Algorithm/Types/ObjectDetectionAlgorithm';
+import ObjectDetectionAlgorithm from './components/Algorithm/Types/ObjectDetection/ObjectDetectionAlgorithm';
 
 import ScrollToTop from './components/Common/ScrollToTop';
 
