@@ -4,7 +4,7 @@ import Home from './components/Home/Home';
 import RegressionAlgorithm from './components/Algorithm/Types/LinearRegression/LinearRegressionAlgorithm';
 import LogisiticAlgorithm from './components/Algorithm/Types/LogisticRegression/LogisticRegressionAlgorithm';
 import NeuralNetworkAlgorithm from './components/Algorithm/Types/NeuralNetwork/NeuralNetworkAlgorithm';
-import KNearestNeighborAlgorithm from './components/Algorithm/Types/KNearestNeighborAlgorithm';
+import KNearestNeighborAlgorithm from './components/Algorithm/Types/NearestNeighbors/KNearestNeighborAlgorithm';
 import KMeanClusteringAlgorithm from './components/Algorithm/Types/KMeanAlgorithm';
 import ObjectDetectionAlgorithm from './components/Algorithm/Types/ObjectDetection/ObjectDetectionAlgorithm';
 
