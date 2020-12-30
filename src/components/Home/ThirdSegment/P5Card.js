@@ -8,7 +8,10 @@ const P5Card = (props) => {
             <div className="powered-card-content">
                 A JavaScript library for creative coding.
             </div>
-            <a className="powered-card-button" style={{background: '#EF476F'}}>
+            <a 
+                className="powered-card-button" 
+                style={{background: '#EF476F'}}
+                href="https://p5js.org/">
                 Explore
             </a>
         </div>

@@ -3,11 +3,7 @@ const Navbar = (props) => {
         <nav className="navbar" role="navigation" aria-label="main navigation" style={{zIndex: 1}}>
             <div className="navbar-menu"
                 style={{"flex-grow": 1, "justify-content": "center"}}>
-                <a className="navbar-item navbar-underlined">
-                    Home
-                </a>
-
-                <a className="navbar-item navbar-underlined">
+                <a onClick={() => props.onAlgorithmClick()} className="navbar-item navbar-underlined">
                     Algorithms
                 </a>
             </div>

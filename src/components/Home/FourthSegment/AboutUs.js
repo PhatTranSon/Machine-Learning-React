@@ -55,7 +55,7 @@ class AboutUs extends React.Component {
                             animationOut="fadeOut" 
                             isVisible={this.state.isVisible}>
                             <img src={avatar} alt="Avatar"/>
-                            <h1 className="about-name">Tran Son Phat</h1>
+                            <a className="about-name">Tran Son Phat</a>
                         </Animated>
                     </div>
                     <div className="column">
@@ -65,15 +65,9 @@ class AboutUs extends React.Component {
                             animationOut="fadeOut" 
                             isVisible={this.state.isVisible}>
                             <img src={avatar} alt="Avatar"/>
-                            <h1 className="about-name">Pham Hoang Minh</h1>
+                            <a className="about-name">Pham Hoang Minh</a>
                         </Animated>
                     </div>
-                </div>
-                <div>
-                    <button className="contact-button">
-                        f
-                    </button>
-                    <p className="contact-button-text">Facebook</p>
                 </div>
             </div>
         </div>

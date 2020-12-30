@@ -8,7 +8,10 @@ const ConvNetCard = (props) => {
             <div className="powered-card-content">
                 A lightweight deep learning framework.
             </div>
-            <a className="powered-card-button" style={{background: '#1D3557'}}>
+            <a
+                href="https://cs.stanford.edu/people/karpathy/convnetjs/"
+                className="powered-card-button" 
+                style={{background: '#1D3557'}}>
                 Explore
             </a>
         </div>

@@ -6,6 +6,11 @@
   margin: 0;
 }
 
+/*Smoother scrolling animation*/
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;
@@ -187,6 +192,10 @@ code {
   width: 30%;
 }
 
+.powered-card-button:hover {
+  color: white;
+}
+
 /*About section*/
 .about {
   text-align: center;
@@ -208,7 +217,7 @@ code {
 }
 
 .about-content {
-  font-size: 2vh;
+  font-size: 3vh;
   font-weight: 200;
   width: 50%;
   display: inline-block;
@@ -219,6 +228,7 @@ code {
   font-size: 3vh;
   font-weight: 200;
   color: white;
+  display: block;
 }
 
 .contact-button {

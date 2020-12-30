@@ -8,7 +8,10 @@ const TensorflowCard = (props) => {
             <div className="powered-card-content">
                 A library for machine learning in Javascript.
             </div>
-            <a className="powered-card-button" style={{background: '#F4A261'}}>
+            <a 
+                className="powered-card-button" 
+                href="https://www.tensorflow.org/js"
+                style={{background: '#F4A261'}}>
                 Explore
             </a>
         </div>
