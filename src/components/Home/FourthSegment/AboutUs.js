@@ -44,7 +44,7 @@ class AboutUs extends React.Component {
             <div>
                 <h1 className="about-title">About</h1>
                 <p className="about-content">
-                    The Machine Learning  Illustrated project was created by Phat and Minh, two undergraduates at RMIT university. The goals of this project is to make machine learning algorithms more intuitive and accessible. It is also heavily influenced by <a href="https://seeing-theory.brown.edu/">Seeing Theory</a>
+                    The Machine Learning  Illustrated project was created by Phat and Minh, two undergraduates at RMIT university. The goals of this project is to make machine learning algorithms more intuitive and accessible. It is also heavily influenced by <a href="https://seeing-theory.brown.edu/" className="about-link">Seeing Theory</a>
                 </p>
                 <h1 className="about-title" style={{margin: "30px 0px"}}>Authors</h1>
                 <div className="columns">
