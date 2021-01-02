@@ -48,11 +48,6 @@ const Algorithm = (props) => {
                         <MathJax.Provider>
                             Generally, k-Mean clustering training often contains 2 main steps.<br/><br />
                             In the first step, we generate <MathJax.Node inline formula="k"/> clusters, namely <MathJax.Node inline formula="{\mu_1, \mu_2, \mu_3, ..., \mu_k}"/> by takning random points in the training net, though other initialize methods are also available
-                            <p className="equation-text">
-                                <MathJax.Node formula={"\\text{class of }x^{(i)} = \\text{class of centroid closest to }x^{(i)}"} />
-                            </p>
-                            where <MathJax.Node inline formula="x^{(i)}"/> is a training example in the dataset.<br/><br/>
-                            The distance between a point and a centroid is their Euclidean distance we have learnt previously.
                         </MathJax.Provider>
                     </p>
                 </PanelChild>
@@ -60,7 +55,12 @@ const Algorithm = (props) => {
                     <h1 className="algo-left-header">Class assignment and Centroid calculation</h1>
                     <p className="algo-left-text">
                         <MathJax.Provider>
-                            In the second step, the class of each point in the dataset will be decided based on the nearest cluster. For example, if its distance to the blue centroid is the smallest, compared to the distance to green or red centroid, the class will be blue.<br /><br/>
+                            In the second step, the class of each point in the dataset will be decided based on the nearest cluster. For example, if its distance to the blue centroid is the smallest, compared to the distance to green or red centroid, the class will be blue.
+                            <p className="equation-text">
+                                <MathJax.Node formula={"\\text{class of }x^{(i)} = \\text{class of centroid closest to }x^{(i)}"} />
+                            </p>
+                            where <MathJax.Node inline formula="x^{(i)}"/> is a training example in the dataset.<br/><br/>
+                            The distance between a point and a centroid is their Euclidean distance we have learnt previously.<br /><br />
                             After all the points has been assigned a class, the centroid coordinate itself will be recalculated. The coordinates for the blue centroid, for instance, will be the average of the coordinates of all points whose class is blue.
                             <p className="equation-text">
                                 <MathJax.Node formula={"x_\\text{green centroid} = average(\\text{x's of green datapoints})"} />
