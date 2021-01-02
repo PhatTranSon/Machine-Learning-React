@@ -50,7 +50,7 @@ export default (props) => {
         cores = [];
         
         //Create 3 cores
-        for (let i = 0; i !== 3; ++i) {
+        for (let i = 0; i != 3; ++i) {
             //Random core initialization
             let x = p5Ref.random(10, width - 10);
             let y = p5Ref.random(10, height - 10);
@@ -104,7 +104,7 @@ export default (props) => {
             });
             
             //Target position is the average
-            if (core.children.length !== 0) {
+            if (core.children.length != 0) {
                 let targetX = (sumX + 0.0) / core.children.length;
                 let targetY = (sumY + 0.0) / core.children.length;
                 
@@ -185,7 +185,7 @@ export default (props) => {
 
         //Move the cores into position
         cores.forEach(core => {
-            if (core.target_x !== null) {
+            if (core.target_x != null) {
                 core.setPosition(p5.lerp(core.x, core.target_x, 0.01), p5.lerp(core.y, core.target_y, 0.01));
             }
         })
